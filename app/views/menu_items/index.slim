@@ -1,0 +1,19 @@
+h1 This is all the menu items
+
+
+table
+  thead
+    tr
+      th food name
+      th food category
+  tbody
+  - @menu_items.each do |c|
+    tr
+      td
+        = c.name
+      td
+        = c.menu_category
+
+
+br
+== link_to 'create new', new_menu_item_path

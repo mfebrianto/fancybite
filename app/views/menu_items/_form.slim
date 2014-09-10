@@ -1,0 +1,14 @@
+= form_for @menu_item do |f|
+  - if @menu_item.errors.any?
+    - @menu_item.errors.full_messages.each do |msg|
+      li = msg
+  div
+    = f.label :name
+    = f.text_field :name
+  div
+    = f.label :price
+    = f.text_field :price
+  div
+    = f.label :menu_category
+    = f.select(:menu_category_id, MenuCategory.all.collect {|u| [u.name, u.id]}, :prompt => 'Select')
+  = f.submit

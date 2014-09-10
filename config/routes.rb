@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   #   resources :products
   resources :dashboard
   resources :menu_categories
+  resources :menu_items
 
   # Example resource route with options:
   #   resources :products do

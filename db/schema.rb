@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910075723) do
+ActiveRecord::Schema.define(version: 20140910124937) do
 
   create_table "menu_categories", force: true do |t|
     t.string   "name"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20140910075723) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "menu_items", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "price"
+    t.string   "picture"
+    t.integer  "menu_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "menu_items", ["menu_category_id"], name: "index_menu_items_on_menu_category_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

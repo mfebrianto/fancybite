@@ -9,10 +9,18 @@ class MenuCategoriesController < AuthController
   end
 
   def create
-    @menu_category = MenuCategory.new(params)
+    @menu_category = MenuCategory.new(menu_category_params)
     if @menu_category.save
-      render 'index'
+      redirect_to action: 'index'
+    else
+      render :new
     end
+  end
+
+  private
+
+  def menu_category_params
+    params.require(:menu_category).permit(:name)
   end
 
 end

@@ -1,17 +1,16 @@
 h1 This is all the menu categories
 
 
-thead
-  tr
-    th Collection Names
+table
+  thead
+    tr
+      th Collection Names
   tbody
+  - @menu_categories.each do |c|
     tr
       td
-        - @menu_categories.each do |c|
-          = c.name
+        = c.name
 
-br
 
-== link_to 'List all menu categories', menu_categories_path
 br
 == link_to 'create new', new_menu_category_path
