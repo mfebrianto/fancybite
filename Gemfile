@@ -17,6 +17,10 @@ gem 'devise', '~> 3.3.0'
 gem 'mysql2', '~> 0.3.16'
 gem 'slim', '~> 2.0.3'
 
+gem 'shoulda-matchers', '~> 2.7.0'
+gem 'rspec', '~> 3.1.0'
+gem 'rspec-rails', '~> 3.1.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
