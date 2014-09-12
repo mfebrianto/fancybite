@@ -28,6 +28,10 @@ Rails.application.configure do
   config.assets.debug = true
   config.assets.paths << Rails.root.join("app", "assets", "stylesheets", "plugins", "bootstrap", "css")
   config.assets.paths << Rails.root.join("app", "assets", "icons", "font-awesome", "css")
+  config.assets.paths << Rails.root.join("app", "assets", "javascripts", "plugins", "bootstrap")
+  config.assets.paths << Rails.root.join("app", "assets", "javascripts", "plugins", "slimscroll")
+  config.assets.paths << Rails.root.join("app", "assets", "javascripts", "plugins", "popupoverlay")
+  config.assets.paths << Rails.root.join("app", "assets", "javascripts", "demo")
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
