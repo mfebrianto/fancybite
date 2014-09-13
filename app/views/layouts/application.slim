@@ -31,10 +31,33 @@ html
     nav class=["navbar-side"] role="navigation"
       div class=["navbar-collapse sidebar-collapse collapse"]
         ul id="side" class=["nav navbar-nav side-nav"]
+          /!logo - logout button!/
+          li class=["side-user hidden-xs"]
+            img class=["img-circle"] src="/assets/profile-pic.jpg"
+            p class=["welcome"]
+              i class=["fa fa-key"]
+              |logged in as
+            p class=["name tooltip-sidebar-logout"]
+              |Clairine
+              span class="last-name"
+                |  Febrianto
+                |  
+              a style="color: inherit" class=["logout_open"] href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"
+                i class=["fa fa-sign-out"]
+              div class=["clearfix"]
+
           li
             a class="active" href="/dashboard"
               i class=["fa fa-dashboard"]
               |Dashboard
+          li
+            == link_to menu_categories_path
+              i class="fa fa-calendar"
+              |Menu Categories
+          li
+            == link_to menu_items_path
+              i class="fa fa-calendar"
+              |Menu Items
 
     /!main page!/
     div id="page-wrapper"
