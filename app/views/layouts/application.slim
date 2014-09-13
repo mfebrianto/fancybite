@@ -61,8 +61,9 @@ html
 
     /!main page!/
     div id="page-wrapper"
-      div class=["page-content"]
-        == yield
+      div class=["row"]
+        div class=["page-content page-content-ease-in"]
+          == yield
 
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"
     = javascript_include_tag "bootstrap.min.js"
