@@ -20,7 +20,7 @@ class MenuItemsController < AuthController
   private
 
   def menu_item_params
-    params.require(:menu_item).permit(:name)
+    params.require(:menu_item).permit(:name, :price, :menu_category_id, :picture)
   end
 
 end
