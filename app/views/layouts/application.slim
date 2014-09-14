@@ -42,7 +42,7 @@ html
               span class="last-name"
                 |  Febrianto
                 |
-              a style="color: inherit" class=["logout_open"] href="#logout" data-toggle="tooltip" data-placement="top" title="Logout"
+              a style="color: inherit" class=["logout_open"] href=destroy_user_session_path data-toggle="tooltip" data-placement="top" title="Logout"
                 i class=["fa fa-sign-out"]
               div class=["clearfix"]
 
@@ -70,6 +70,7 @@ html
     = javascript_include_tag "jquery.slimscroll.min.js"
     = javascript_include_tag "jquery.popupoverlay.js"
     = javascript_include_tag "defaults.js"
+    = javascript_include_tag "application"
 
     = javascript_include_tag "flex.js"
     = javascript_include_tag "dashboard-demo.js"

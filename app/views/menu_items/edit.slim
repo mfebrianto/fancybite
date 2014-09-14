@@ -1,0 +1,15 @@
+div class=["col-lg-12"]
+  div class=["page-title"]
+    h1 Please enter menu detail
+    ol class=["breadcrumb"]
+      li
+        i class=["fa fa-dashboard"]
+        == link_to ' Dashboard', dashboard_index_path
+      li
+        i class=["fa"]
+        == link_to 'Menu Items', menu_items_path
+      li
+        i class=["active"]
+        |edit
+
+  == render partial: 'form'
