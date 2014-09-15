@@ -2,16 +2,5 @@ doctype html
 html
   head
     title Fancybite
-    = stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag "application", 'data-turbolinks-track' => true
-    = csrf_meta_tags
-
--if notice
-  p class=["alert alert-success"]
-    = notice
-- if alert
-  p class=["alert alert-danger"]
-    = alert
-
 
 == yield
