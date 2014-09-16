@@ -2,38 +2,35 @@ css:
   .control-label {
     color: black;
   }
+
   td a:link {
     color: #f39c12;
   }
+
   td a:visited {
     color: #f39c12;
   }
+
   td a:hover {
     color: #f39c12;
   }
+
   td a:active {
     color: #f39c12;
   }
 
-
 div class=["col-lg-12"]
   div class=["page-title"]
-    h1 List of all available menu
+    h1 This is configuration for featuring items
     ol class=["breadcrumb"]
       li
         i class=["fa fa-dashboard"]
-        == link_to ' Dashboard', dashboard_index_path
+          == link_to ' Dashboard', dashboard_index_path
       li
         i class=["active"]
-        |Menu Items
-
+        |Featuring Items
 
   div class=["col-lg-12"]
-
-    button class=["btn btn-green"] onclick="location.href='#{new_menu_item_path}'"
-      |Crete new Menu
-    br
-    br
 
     div class=["portlet portlet-orange"]
       div class=["portlet-heading"]
@@ -52,20 +49,14 @@ div class=["col-lg-12"]
                   |Price
                 th
                   |Picture
-                th
             tbody
-              - @menu_items.each do |c|
+              - @featuring_items.each do |c|
                 tr
                   td
-                    = link_to c.name, edit_menu_item_path(c.id)
+                    = c.menu_item.name
                   td
-                    = c.menu_category.name
+                    = c.menu_item.menu_category.name
                   td
-                    = c.price
+                    = c.menu_item.price
                   td
-                    = image_tag c.picture.url(:thumb)
-                  td
-                    = form_for c, :remote => true, :method => 'post', :url => { :controller => "featuring_items", :action => "create" } do |f|
-                      = f.hidden_field :id
-                      = f.submit "+",:disable_with => "Submitting..."
-                    = link_to  "Click here" , featuring_items_path , remote: true
+                    = image_tag c.menu_item.picture.url(:thumb)

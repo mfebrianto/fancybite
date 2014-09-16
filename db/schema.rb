@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140913080013) do
+ActiveRecord::Schema.define(version: 20140916112614) do
+
+  create_table "featuring_items", force: true do |t|
+    t.integer "sequence"
+    t.integer "menu_item_id"
+  end
+
+  add_index "featuring_items", ["menu_item_id"], name: "index_featuring_items_on_menu_item_id", using: :btree
 
   create_table "menu_categories", force: true do |t|
     t.string   "name"

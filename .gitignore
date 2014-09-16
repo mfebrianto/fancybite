@@ -17,3 +17,7 @@
 
 # Ignore IDE files
 .idea
+.DS_Store
+
+# ignore paperclip images
+public/system

@@ -1,0 +1,163 @@
+doctype html
+html
+  head
+    title Fancybite
+
+    = stylesheet_link_tag    "bootstrap.min.css", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "bootstrap-responsive.min.css", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "nivo-slider.css", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "anythingslider.css", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "lightbox.css", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "style-cupcake.css", media: 'all', 'data-turbolinks-track' => true
+
+  body
+    div id='header'
+      div class=['container']
+
+        div class=['logoContainer']
+          = link_to root_path
+            img src="assets/img/logo_temp.png"
+
+        div class=['topData']
+          ul class='social'
+            li
+              = link_to 'Facebook', 'http://www.facebook.com', class: 'fb'
+            li
+              = link_to 'Twitter', 'http://www.facebook.com', class: 'twit'
+            li
+              = link_to 'Rss', 'http://www.facebook.com', class: 'rss'
+            li
+              = link_to 'E-mail', 'http://www.facebook.com', class: 'mail'
+
+          address
+            |Gading Nias Apartment.
+            br
+            |Kelapa Gading. Jakarta Utara
+
+        div class=['clearfix']
+
+    div id='menuContainer'
+      div class=['container']
+        ul class=['mainMenu']
+          li
+            = link_to 'Home', root_path
+          li
+            = link_to 'About', root_path
+          li
+            = link_to 'Menucard', root_path
+          li
+            = link_to 'Gallery', root_path
+          li
+            = link_to 'Contact', root_path
+
+        div class=['login']
+          ul
+            li
+              = link_to 'Login', root_path
+            li
+              = link_to 'SignUp', root_path
+
+        div class=['clearfix']
+
+== yield
+
+
+= javascript_include_tag "jquery.js"
+= javascript_include_tag "bootstrap.min.js"
+= javascript_include_tag "jquery.nivo.slider.pack.js"
+= javascript_include_tag "jquery.arctext.js"
+= javascript_include_tag "jquery.anythingslider.min.js"
+= javascript_include_tag "lightbox.js"
+= javascript_include_tag "contact-form.js"
+
+javascript:
+  $(document).ready(function () {
+
+    // init curved header
+    $('.curved').arctext({radius:250, rotate:true, dir:1});
+
+
+    // slider1 init
+    $('#slider1Nivo').nivoSlider({
+      effect:'random',
+      pauseTime:8000,
+      captionEasing:'linear',
+      slices:15, // For slice animations
+      boxCols:8, // For box animations
+      boxRows:4, // For box animations
+      animSpeed:500, // Slide transition speed
+      startSlide:0, // Set starting Slide (0 index)
+      directionNav:true, // Next & Prev navigation
+      controlNav:true, // 1,2,3... navigation
+      controlNavThumbs:false, // Use thumbnails for Control Nav
+      pauseOnHover:true, // Stop animation while hovering
+      manualAdvance:false, // Force manual transitions
+      prevText:'Prev', // Prev directionNav text
+      nextText:'Next', // Next directionNav text
+      randomStart:false, // Start on a random slide
+      beforeChange:function () {
+      }, // Triggers before a slide transition
+      afterChange:function () {
+      }, // Triggers after a slide transition
+      slideshowEnd:function () {
+      }, // Triggers after all slides have been shown
+      lastSlide:function () {
+      }, // Triggers when last slide is shown
+      afterLoad:function () {
+      } // Triggers when slider has loaded
+
+    });
+
+
+    // init slider2
+    $('#anythingSlider2').anythingSlider({
+      autoPlay:false,
+      expand:true,
+      pauseOnHover:true,
+      hashTags:false,
+      buildNavigation:false,
+      buildStartStop:false,
+      delay:8000
+    });
+
+
+    // show book a table on click
+    $(".box9").hide();
+
+    $("#bkTable").click(function () {
+      $(".box9").fadeToggle();
+
+      return false;
+    })
+
+    // slide and show iphone book a table box on click
+    $(".ipad-box9").hide();
+
+    $(".topBar .bookTable").click(function () {
+      $(".ipad-box9").slideToggle();
+      return false;
+    })
+
+
+    // show submenu on click
+
+    $("ul.mainMenu li.subMenu ul").hide();
+
+    $("ul.mainMenu li.subMenu > a").click(function () {
+      $("ul.mainMenu li.subMenu ul").hide();
+      $(this).next('ul').toggle();
+
+      return false;
+    });
+
+    // hide submenu when click outside menu container
+    $("body").click(function () {
+      $("ul.mainMenu li.subMenu ul").hide();
+    });
+
+    // lightbox assign validation
+    $('a[data-rel]').each(function () {
+      $(this).attr('rel', $(this).data('rel'));
+    });
+
+  });

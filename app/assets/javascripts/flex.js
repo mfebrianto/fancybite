@@ -36,14 +36,14 @@ $("a i.fa-refresh").click(function() {
 });
 
 //Slim Scroll
-$(function() {
-    $('#messageScroll, #alertScroll, #taskScroll').slimScroll({
-        height: '200px',
-        alwaysVisible: true,
-        disableFadeOut: true,
-        touchScrollStep: 50
-    });
-});
+//$(function() {
+//    $('#messageScroll, #alertScroll, #taskScroll').slimScroll({
+//        height: '200px',
+//        alwaysVisible: true,
+//        disableFadeOut: true,
+//        touchScrollStep: 50
+//    });
+//});
 
 //Easing Script for Smooth Page Transitions
 $(function() {
@@ -51,15 +51,15 @@ $(function() {
 });
 
 //Tooltips
-$(function() {
+//$(function() {
+//
+//    // Tooltips for sidebar toggle and sidebar logout button
+//    $('.tooltip-sidebar-toggle, .tooltip-sidebar-logout').tooltip({
+//        selector: "[data-toggle=tooltip]",
+//        container: "body"
+//    })
 
-    // Tooltips for sidebar toggle and sidebar logout button
-    $('.tooltip-sidebar-toggle, .tooltip-sidebar-logout').tooltip({
-        selector: "[data-toggle=tooltip]",
-        container: "body"
-    })
-
-})
+//})
 
 //HISRC Responsive Images
 //$(document).ready(function() {
