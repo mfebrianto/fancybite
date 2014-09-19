@@ -1,0 +1,9 @@
+#at_error{
+    color: red;
+    text-align: center;
+}
+
+#at_notice{
+    color: orange;
+    text-align: center;
+}

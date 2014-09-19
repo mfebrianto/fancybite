@@ -18,6 +18,7 @@ Rails.application.config.assets.precompile += ['plugins/popupoverlay/jquery.popu
 Rails.application.config.assets.precompile += ['plugins/popupoverlay/defaults.js']
 Rails.application.config.assets.precompile += ['demo/dashboard-demo.js']
 Rails.application.config.assets.precompile += ['flex.js']
+Rails.application.config.assets.precompile += ['errors.css']
 
 Rails.application.config.assets.precompile += ['nivo-slider.css']
 Rails.application.config.assets.precompile += ['anythingslider.css']
@@ -30,3 +31,4 @@ Rails.application.config.assets.precompile += ['jquery.nivo.slider.pack.js']
 Rails.application.config.assets.precompile += ['jQueryRotateCompressed.2.2.js']
 Rails.application.config.assets.precompile += ['lightbox.js']
 Rails.application.config.assets.precompile += ['jquery.js']
+Rails.application.config.assets.precompile += ['errors.js']
