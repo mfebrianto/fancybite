@@ -49,6 +49,7 @@ div class=["col-lg-12"]
                   |Price
                 th
                   |Picture
+                th
             tbody
               - @featuring_items.each do |c|
                 tr
@@ -60,3 +61,5 @@ div class=["col-lg-12"]
                     = c.menu_item.price
                   td
                     = image_tag c.menu_item.picture.url(:thumb)
+                  td
+                    = link_to 'delete', featuring_item_path(c.id), :remote => true, :method => 'delete'

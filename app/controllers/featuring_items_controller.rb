@@ -12,14 +12,19 @@ class FeaturingItemsController < AuthController
     end
   end
 
+  def destroy
+    Rails.logger.info ">>>>>>>>destroy"
+  end
+
   def create
     featuring_item_interactor = FeaturingItemInteractor.new(menu_item_param)
     @featuring_item = featuring_item_interactor.featuring_item
 
     if @featuring_item.save
-      flash[:notice] = 'menu item successfully added to featuring items'
+      Rails.logger.info ">>>>>>notice"
+      flash.now[:notice] = 'menu item successfully added to featuring items'
     else
-      flash[:errors] = @featuring_item.errors.full_messages.join(', ')
+      flash.now[:error] = @featuring_item.errors.full_messages.join(', ')
     end
 
     respond_to do |format|

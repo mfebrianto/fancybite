@@ -1,1 +1,5 @@
-error_and_notice_messages.show_errors("<%= escape_javascript flash[:errors] %>");
+<% if !flash.now[:error].nil? %>
+    error_and_notice_messages.show_errors("<%= escape_javascript flash.now[:error] %>");
+<% elsif !flash.now[:notice].nil? %>
+    error_and_notice_messages.show_notice("<%= escape_javascript flash.now[:notice] %>");
+<% end %>
