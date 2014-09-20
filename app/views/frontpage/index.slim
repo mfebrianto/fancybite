@@ -9,15 +9,17 @@ div id='mainContent' class=['sliderBack']
           div class=['sliderContent']
             div class=['slider-wrapper']
               div id='slider1Nivo' class='nivoSlider'
-                div class=['slider1Frame']
-                  img src='assets/img/content/slider_small_01.jpg' alt=''
-                div class=['slider1Frame']
-                  img src='assets/img/content/slider_small_02.jpg' alt=''
-                div class=['slider1Frame']
-                  img src='assets/img/content/slider_small_03.jpg' alt=''
-                div class=['slider1Frame']
-                  img src='assets/img/content/slider_small_04.jpg' alt=''
+                - @featuring_items.each do |featuring_item|
+                  div class=['slider1Frame']
+                    = image_tag featuring_item.menu_item.picture.url(:original)
 
-      h2 class=['hdr1']
-        |Are you fancy for some bites
+      div class=['oneColumn']
+        div class=['container']
 
+          h2 class=["hdr4"]
+            |Do you fancy for some bites ?
+          div class=["slider5"]
+            div id="externalNav"
+              - @menu_categories.each do |menu_category|
+                a href="#1"
+                  = menu_category.name

@@ -348,7 +348,7 @@ p.full {font-size:13px; margin:0 105px 35px 105px;}
 .slider5 span.arrow.back a:hover {background-position:-14px -59px;}
 
 .slider5 #externalNav {text-align:center;}
-.slider5 #externalNav a {text-shadow:2px 3px 1px #a83d5f; font-family: 'PatuaOneRegular'; font-size:11px; color:#fff; background:#bf466c; border-radius:5px; display:inline-block; padding:0 12px; margin:2px 15px; text-transform: uppercase;}
+.slider5 #externalNav a {text-shadow:2px 3px 1px #a83d5f; font-family: 'PatuaOneRegular'; color:#fff; background:#bf466c; border-radius:5px; display:inline-block; padding:0 12px; margin:2px 15px; text-transform: uppercase;}
 .slider5 #externalNav a.cur {text-decoration:underline;}
 .slider5 .pagesNr {display:inline-block; background:#bf466c; position:absolute; right:45px; bottom:2px; padding:1px; width:26px; text-align:center; border-radius:5px; font-family: 'PatuaOneRegular'; font-size:14px; color:#fff; text-shadow:1px 2px 2px #a93e60; }
 
