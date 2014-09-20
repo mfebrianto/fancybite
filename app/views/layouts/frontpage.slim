@@ -3,7 +3,7 @@ html
   head
     title Fancybite
 
-    = stylesheet_link_tag    "bootstrap.min.css", media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    "frontpage/bootstrap.min.css", media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    "bootstrap-responsive.min.css", media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    "nivo-slider.css", media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag    "anythingslider.css", media: 'all', 'data-turbolinks-track' => true
@@ -73,6 +73,56 @@ html
 javascript:
   $(document).ready(function () {
 
+    <!-- AnythingSlider initialization -->
+
+    var $s = $('#anythingSlider5'), nav = $('#externalNav a'), updateNav = function (page) {
+              nav.removeClass('cur').eq(page).addClass('cur');
+    };
+
+    var allpages = $s.find('li').size();
+    $('.pagesNr .nr2').append('/' + allpages);
+
+    $s.anythingSlider({
+      // If true, builds a list of anchor links to link to each panel
+      mode:"vertical",
+      autoPlay:false,
+      expand:true,
+      pauseOnHover:true,
+      hashTags:false,
+      buildNavigation:false,
+      buildStartStop:false,
+      delay:8000,
+
+      onInitialized:function (e, slider) {
+        updateNav(slider.currentPage - 1);
+        $('.pagesNr .nr1').empty().append(slider.targetPage);
+      },
+      // Callback before slide animates
+      onSlideBegin:function (e, slider) {
+        updateNav(slider.targetPage - 1);
+        $('.pagesNr .nr1').empty().append(slider.targetPage);
+      }
+    });
+
+    // set up external links
+    $('#externalNav a').click(function () {
+      // get slide number (ignore the #)
+      var slide = $(this).attr('href').substring(1), // get AnythingSlider data object
+        slider = $s.data('AnythingSlider');
+      if (slide === "play") {
+        // toggle slideshow
+        slider.startStop(!slider.playing);
+        // change link text
+        $('a.play').text(slider.playing ? 'Pause' : 'Play');
+      } else {
+        // go to selected slide
+        $s.anythingSlider(slide);
+      }
+      // prevent link from changing the hash
+      return false;
+    });
+
+
     // init curved header
     $('.curved').arctext({radius:250, rotate:true, dir:1});
 
@@ -108,33 +158,12 @@ javascript:
 
     });
 
-
-    // init slider2
-    $('#anythingSlider2').anythingSlider({
-      autoPlay:false,
-      expand:true,
-      pauseOnHover:true,
-      hashTags:false,
-      buildNavigation:false,
-      buildStartStop:false,
-      delay:8000
-    });
-
-
     // show book a table on click
-    $(".box9").hide();
-
-    $("#bkTable").click(function () {
-      $(".box9").fadeToggle();
-
-      return false;
-    })
-
-    // slide and show iphone book a table box on click
     $(".ipad-box9").hide();
 
-    $(".topBar .bookTable").click(function () {
+    $(".bookTable").click(function () {
       $(".ipad-box9").slideToggle();
+
       return false;
     })
 
@@ -160,4 +189,7 @@ javascript:
       $(this).attr('rel', $(this).data('rel'));
     });
 
+
   });
+
+  </script>
