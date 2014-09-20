@@ -13,7 +13,16 @@ class FeaturingItemsController < AuthController
   end
 
   def destroy
-    Rails.logger.info ">>>>>>>>destroy"
+    flash[:notice] = 'featuring items deleted'
+
+    @featuring_item = FeaturingItem.find(delete_param)
+    @featuring_item.delete
+
+    @featuring_items = FeaturingItem.all
+
+    respond_to do |format|
+      format.js {render :layout=>false}
+    end
   end
 
   def create
@@ -37,5 +46,10 @@ class FeaturingItemsController < AuthController
   def menu_item_param
     params.require(:menu_item).permit(:id)
   end
+
+  def delete_param
+    params.require(:id)
+  end
+
 
 end

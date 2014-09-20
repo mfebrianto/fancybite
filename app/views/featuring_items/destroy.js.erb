@@ -1,0 +1,7 @@
+<% if !flash.now[:error].nil? %>
+    error_and_notice_messages.show_errors("<%= escape_javascript flash.now[:error] %>");
+<% elsif !flash.now[:notice].nil? %>
+    error_and_notice_messages.show_notice("<%= escape_javascript flash.now[:notice] %>");
+<% end %>
+
+$('#featuring_items_table_wrapper').html("<%= escape_javascript render partial: 'table.slim', object: @featuring_items%>");

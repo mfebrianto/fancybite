@@ -1,0 +1,25 @@
+table class=["table table-hover"]
+  thead
+    tr
+      th
+        |Food Name
+      th
+        |Food Category
+      th
+        |Price
+      th
+        |Picture
+      th
+  tbody
+    - @featuring_items.each do |c|
+      tr
+        td
+          = c.menu_item.name
+        td
+          = c.menu_item.menu_category.name
+        td
+          = c.menu_item.price
+        td
+          = image_tag c.menu_item.picture.url(:thumb)
+        td
+          = link_to 'delete', featuring_item_path(c.id), :remote => true, :method => 'delete'
