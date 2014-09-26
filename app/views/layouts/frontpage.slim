@@ -1,1 +1,31 @@
+doctype html
+html
+  head
+    title Fancybite
+
+    = javascript_include_tag "application"
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag "front/custom.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/colors_1.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/bootstrap.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/bootstrap-responsive.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/fullcalendar.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/font-awesome.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/flexslider.css", media: 'screen', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/jquery.mCustomScrollbar.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/style.css", media: 'screen', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/skin.css", 'data-turbolinks-track' => true
+
+  body
+    div id='wrapper'
+      header id='header'
+        div class=['container']
+          div class=['row-fluid']
+            div class=['span3']
+              div class=['logo']
+                = link_to root_path
+                  = image_tag('front/logo-img.png', alt: 'img')
+
 == yield
