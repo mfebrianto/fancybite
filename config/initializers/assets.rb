@@ -33,3 +33,15 @@ Rails.application.config.assets.precompile += ['jQueryRotateCompressed.2.2.js']
 Rails.application.config.assets.precompile += ['lightbox.js']
 Rails.application.config.assets.precompile += ['jquery.js']
 Rails.application.config.assets.precompile += ['errors.js']
+
+# css for front
+Rails.application.config.assets.precompile += %w( front/custom.css front/colors_1.css front/bootstrap.css )
+Rails.application.config.assets.precompile += %w( front/bootstrap-responsive.css front/fullcalendar.css front/font-awesome.css )
+Rails.application.config.assets.precompile += %w( front/flexslider.css front/fullcalendar.css front/jquery.mCustomScrollbar.css )
+Rails.application.config.assets.precompile += %w( front/style.css front/fullcalendar.css front/jquery.mCustomScrollbar.css )
+Rails.application.config.assets.precompile += %w( front/skin.css )
+# js for front
+Rails.application.config.assets.precompile += %w( front/html5.js front/jquery.js front/bootstrap.min.js)
+Rails.application.config.assets.precompile += %w( front/jquery.flexslider.js front/fullcalendar.js front/jquery.mCustomScrollbar.concat.min.js)
+Rails.application.config.assets.precompile += %w( front/excanvas.js front/jquery.easy-pie-chart.js front/jquery.bxslider.js)
+Rails.application.config.assets.precompile += %w( front/custom.js front/jquery.jcarousel.min.js )
