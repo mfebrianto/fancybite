@@ -2,6 +2,9 @@ doctype html
 html
   head
     title Fancybite
+    /!Google Fonts!/
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Oswald|Lato|Roboto:400,500,700|Open+Sans:600,700,300'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Pacifico'
 
     = javascript_include_tag "application"
 
@@ -27,5 +30,36 @@ html
               div class=['logo']
                 = link_to root_path
                   = image_tag('front/logo-img.png', alt: 'img')
+            div class=['span9 margin-non']
+              div class=['top-container']
+              div class=['navbar navbar-inverse nav-bar']
+                div class=['navbar-inner nav-bar-inner']
+                  button type='button' class=['btn btn-navbar'] data-toggle='collapse' data-target='.nav-collapse'
+                    span class=['icon-bar']
+                    span class=['icon-bar']
+                    span class=['icon-bar']
+                  div class=['nav-collapse collapse top-nav']
+                    ul class=['nav']
+                      li class=['dropdown active']
+                        = link_to 'Home', root_path, class: 'dropdown-toggle'
+                      li class=['dropdown']
+                        = link_to 'Our Menu', root_path, class: 'dropdown-toggle'
+                      li class=['dropdown']
+                        = link_to 'Your Shopping Cart', root_path, class: 'dropdown-toggle'
+                      li class=['dropdown']
+                        = link_to 'About Us', root_path, class: 'dropdown-toggle'
+                      li class=['dropdown']
+                        = link_to 'Contact Us', root_path, class: 'dropdown-toggle'
 
-== yield
+    == yield
+
+    = javascript_include_tag "front/bootstrap.min.js"
+    = javascript_include_tag "front/jquery.flexslider.js"
+    = javascript_include_tag "front/fullcalendar.js"
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true"
+    = javascript_include_tag "front/jquery.mCustomScrollbar.concat.min.js"
+    = javascript_include_tag "front/excanvas.js"
+    = javascript_include_tag "front/jquery.easy-pie-chart.js"
+    = javascript_include_tag "front/jquery.bxslider.js"
+    = javascript_include_tag "front/custom.js"
+    = javascript_include_tag "front/jquery.jcarousel.min.js"

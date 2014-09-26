@@ -113,7 +113,7 @@
 	-webkit-transition: all 1s ease 0s;
 }
 #banner .bx-wrapper .bx-next:hover{
-	background-image:url(../images/pagination-arrow.png);
+	background-image:url(pagination-arrow.png);
 	background-repeat:no-repeat;
 	background-position:26px 14px;
 	transition:all 1s ease 0s;
