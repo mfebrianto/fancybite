@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916112614) do
+ActiveRecord::Schema.define(version: 20140929132713) do
+
+  create_table "banner_menus", force: true do |t|
+    t.integer  "sequence"
+    t.string   "url"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
 
   create_table "featuring_items", force: true do |t|
     t.integer "sequence"

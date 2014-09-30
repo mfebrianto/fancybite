@@ -1,0 +1,63 @@
+css:
+  .control-label {
+    color: black;
+  }
+
+  td a:link {
+    color: #f39c12;
+  }
+
+  td a:visited {
+    color: #f39c12;
+  }
+
+  td a:hover {
+    color: #f39c12;
+  }
+
+  td a:active {
+    color: #f39c12;
+  }
+
+div class=["col-lg-12"]
+  div class=["page-title"]
+    h1 List of all available menu
+    ol class=["breadcrumb"]
+      li
+        i class=["fa fa-dashboard"]
+        == link_to ' Dashboard', dashboard_index_path
+      li
+        i class=["active"]
+        |Banner Menus
+
+  div class=["col-lg-12"]
+
+    button class=["btn btn-green"] onclick="location.href='#{new_banner_menu_path}'"
+      |Crete new banner menu
+    br
+    br
+
+    div class=["portlet portlet-orange"]
+      div class=["portlet-heading"]
+        div class=["portlet-title"]
+          div class=["clearfix"]
+      div class=["portlet-body"]
+        div class=["table-responsive"]
+          table class=["table table-hover"]
+            thead
+              tr
+                th
+                  |no
+                th
+                  |URL
+                th
+                  |Picture
+              tbody
+                - @banner_menus.each do |c|
+                  tr
+                    td
+                      = link_to c.id, edit_banner_menu_path(c.id)
+                    td
+                      = c.url
+                    td
+                      = image_tag c.picture.url(:thumb)

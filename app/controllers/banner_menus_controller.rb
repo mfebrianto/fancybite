@@ -1,26 +1,39 @@
 class BannerMenusController < AuthController
 
-  def index
-    @menu_categories = MenuCategory.all
+  def new
+    @banner_menu = BannerMenu.new
   end
 
-  def new
-    @menu_category = MenuCategory.new
+  def index
+    @banner_menus = BannerMenu.all
   end
 
   def create
-    @menu_category = MenuCategory.new(menu_category_params)
-    if @menu_category.save
+    @banner_menu = BannerMenu.new(banner_menu_params)
+    if @banner_menu.save
       redirect_to action: 'index'
     else
       render :new
     end
   end
 
+  def edit
+    @banner_menu = BannerMenu.find(params[:id])
+  end
+
+  def destroy
+    @banner_menu = BannerMenu.find(params[:id])
+    if @banner_menu.delete
+      redirect_to action: 'index'
+    else
+      render :edit
+    end
+  end
+
   private
 
-  def menu_category_params
-    params.require(:menu_category).permit(:name)
+  def banner_menu_params
+    params.require(:banner_menu).permit(:url, :picture)
   end
 
 end
