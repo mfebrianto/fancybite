@@ -58,16 +58,10 @@ section id='banner'
               = link_to 'DOWNLOAD OUR FULL MENU', root_path, class: 'download'
 
   ul class="bxslider"
-    li
-      = image_tag('front/banner-img-2.jpg', alt: 'img')
-    li
-      = image_tag('front/banner-img-3.jpg', alt: 'img')
-    li
-      = image_tag('front/cake-banner-1.jpg', alt: 'img')
-    li
-      = image_tag('front/banner-img-2.jpg', alt: 'img')
-    li
-      = image_tag('front/banner-img-3.jpg', alt: 'img')
+    - @banner_menus.each do |banner|
+      li
+        = link_to banner.url
+          = image_tag(banner.picture.url(:original), alt: 'img')
 
 section id='content' class=['container']
 section class=['featured-section']
