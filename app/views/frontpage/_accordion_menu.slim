@@ -7,3 +7,13 @@ div class=["accordion accordion-area"] id="accordion2"
       div id="collapse#{menu_category.id}" class=["accordion-body collapse #{in?(menu_category)}"]
         div class=["accordion-inner"]
           div class=["content-2 scroll"] id="content_2"
+            - menu_category.menu_items.each do |menu_item|
+              ul class=["accordion-list"]
+                li
+                  div class=["frame"]
+                    = image_tag(menu_item.picture.url(:original), alt: 'img')
+                    div class=["caption"]
+                      strong class=["title"]
+                        = menu_item.name
+                    strong class=["price"]
+                      = menu_item.price
