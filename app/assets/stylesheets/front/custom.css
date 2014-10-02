@@ -736,7 +736,7 @@ left-caption-box {
 	font-size: 20px;
 	padding: 0;
 	margin: 0 0 31px 0;
-	background: url(../images/header-pattren.png) repeat;
+	background: url(header-pattren.png) repeat;
 	overflow: hidden;
 	clear: both;
 }
@@ -1043,7 +1043,7 @@ left-caption-box {
 	display: block;
 }
 .empty-border {
-	background: url(../images/header-pattren.png) repeat;
+	background: url(header-pattren.png) repeat;
 	float: left;
 	height: 34px;
 	width: 100%;
@@ -1170,7 +1170,7 @@ left-caption-box {
 	margin: 0 auto;
 	border: 1px solid #ccc;
 	padding: 0 0 7px 0;
-	background: url(../images/header-pattren.png) repeat;
+	background: url(header-pattren.png) repeat;
 }
 #calendar .fc-button-content {
 	padding: 0;
@@ -1258,7 +1258,7 @@ left-caption-box {
 	margin: 0 0 10px 0;
 }
 .events-box-head {
-	background-image: url(../images/header-pattren.png);
+	background-image: url(header-pattren.png);
 	background-repeat: repeat;
 	background-position: 0 0;
 	padding: 0;
