@@ -3609,7 +3609,7 @@ left-caption-box {
 	background: #efeeef;
 }
 a.back-top {
-	background-image: url(../images/back-top-arrow.png);
+	background-image: url(back-top-arrow.png);
 	background-repeat: no-repeat;
 	background-position: left top;
 	width: 53px;
@@ -3889,14 +3889,14 @@ a.back-top {
 	margin: 0 !important;
 }
 .testimonial-star li a {
-	background: url(../images/testo-start.png) no-repeat left top;
+	background: url(testo-start.png) no-repeat left top;
 	width: 14px;
 	height: 13px;
 	float: left;
 	text-decoration: none;
 }
 .testimonial-star li a:hover {
-	background: url(../images/testo-start-hover.png) no-repeat left top;
+	background: url(testo-start-hover.png) no-repeat left top;
 }
 .testimonial-blockquote {
 	margin: 0;
@@ -4188,13 +4188,13 @@ a.back-top {
 	height: auto;
 }
 .face-review ul li a {
-	background: url(../images/review-face-icon.jpg) no-repeat left top;
+	background: url(review-face-icon.jpg) no-repeat left top;
 	width: 12px;
 	height: 12px;
 	float: left;
 }
 .face-review ul li a:hover {
-	background: url(../images/review-face-icon-hover.jpg) no-repeat left top;
+	background: url(review-face-icon-hover.jpg) no-repeat left top;
 }
 .face-review strong.title {
 	font-family: 'Open Sans', sans-serif;
@@ -4232,7 +4232,7 @@ a.back-top {
 	text-align: center;
 	background: #ebebeb;
 	height: 59px;
-	padding: 6px 91px 0;
+	padding: 6px 89px 0;
 	text-decoration: none;
 	position: relative;
 	left: -1px;
@@ -4448,13 +4448,13 @@ a.back-top {
 	height: auto;
 }
 .face-review2 ul li a {
-	background: url(../images/review-face-icon.jpg) no-repeat left top;
+	background: url(review-face-icon.jpg) no-repeat left top;
 	width: 12px;
 	height: 12px;
 	float: left;
 }
 .face-review2 ul li a:hover {
-	background: url(../images/review-face-icon-hover.jpg) no-repeat left top;
+	background: url(review-face-icon-hover.jpg) no-repeat left top;
 }
 .face-review2 strong.title {
 	font-family: 'Open Sans', sans-serif;

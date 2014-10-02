@@ -40,18 +40,95 @@ html
                     span class=['icon-bar']
                   div class=['nav-collapse collapse top-nav']
                     ul class=['nav']
-                      li class=['dropdown active']
+                      li class=["dropdown #{active_menu?(controller.controller_name,'frontpage')}"]
                         = link_to 'Home', root_path, class: 'dropdown-toggle'
-                      li class=['dropdown']
-                        = link_to 'Our Menu', root_path, class: 'dropdown-toggle'
-                      li class=['dropdown']
+                      li class=["dropdown #{active_menu?(controller.controller_name,'complete_menu_items')}"]
+                        = link_to 'Our Menu', complete_menu_items_path, class: 'dropdown-toggle'
+                      li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
                         = link_to 'Your Shopping Cart', root_path, class: 'dropdown-toggle'
-                      li class=['dropdown']
+                      li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
                         = link_to 'About Us', root_path, class: 'dropdown-toggle'
-                      li class=['dropdown']
+                      li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
                         = link_to 'Contact Us', root_path, class: 'dropdown-toggle'
 
+    section id='banner'
+      div class=['caption']
+        div class=['banner-caption']
+          div class=['container']
+            div class=['row-fluid']
+              div class=['span3 banner-left']
+                ul class=['bxslider-2']
+                  li
+                    div class=['caption-left']
+                      div class=['deal-tag']
+                        strong class=['title']
+                          |Coffe of the day
+                      div class=['left-caption-box']
+                        strong class=['title']
+                          |Deliciousness
+                          br
+                          |made for you
+                        = image_tag('front/chef-img.png', alt: 'img', class: 'chef-img')
+                  li
+                    div class=['caption-left']
+                      div class=['deal-tag']
+                        strong class=['title']
+                          |Coffe of the day
+                      div class=['left-caption-box']
+                        strong class=['title']
+                          |Deliciousness
+                          br
+                          |made for you
+                        = image_tag('front/chef-img.png', alt: 'img', class: 'chef-img')
+                  li
+                    div class=['caption-left']
+                      div class=['deal-tag']
+                        strong class=['title']
+                          |Coffe of the day
+                      div class=['left-caption-box']
+                        strong class=['title']
+                          |Deliciousness
+                          br
+                          |made for you
+                        = image_tag('front/chef-img.png', alt: 'img', class: 'chef-img')
+              div class=['span9 right-panel']
+                div class=['caption-right']
+                  strong class=['title']
+                    span class=['text']
+                      |fresh meals everyday
+                  strong class=['open']
+                    |open all week:   10
+                    span class=['small']
+                      |00
+                    |- 23
+                    span class=['small']
+                      |30
+                div class=['caption-center']
+                  strong class=['title']
+                    |DELICIOUS, BEVERAGES AND GREAT-TASTING FOOD.
+                    span
+                      |THE SECRET TO MAKING LIFE BETTER.
+                  = link_to 'DOWNLOAD OUR FULL MENU', root_path, class: 'download'
+
+      ul class="bxslider"
+        - @banner_menus.each do |banner|
+          li
+            = link_to banner.url
+              = image_tag(banner.picture.url(:original), alt: 'img')
+
+
     == yield
+
+    footer id='footer'
+      div class=['row-fluid']
+        section class=['footer-section-3']
+          div class=['container']
+            div class=['span6']
+              div class=['copy-section']
+                strong class=['copy']
+                  |© 2014 Fancy Bite, Developed by MichaelClairine
+            div class=['span6']
+
 
     = javascript_include_tag "front/bootstrap.min.js"
     = javascript_include_tag "front/jquery.flexslider.js"

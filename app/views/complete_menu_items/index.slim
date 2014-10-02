@@ -1,0 +1,70 @@
+section id='content'
+  section class=['blog-page-section']
+    div class=['container']
+      div class=['row-fluid']
+        div class=['span12']
+          div class=['heading']
+            h1
+              |Our Menu
+
+
+section class=['menu-page']
+  div class=['container']
+    div class=['row-fluid']
+      div class=["accordion accordion-area"] id="accordion2"
+        - @menu_categories.each do |menu_category|
+          div class=["accordion-group"]
+            div class=["accordion-heading #{active?(menu_category)}"]
+              a class=["accordion-toggle"] data-toggle="collapse" data-parent="#accordion2" href="#collapse#{menu_category.id}"
+                = menu_category.name
+            div id="collapse#{menu_category.id}" class=["accordion-body collapse #{in?(menu_category)}"]
+              div class=["accordion-inner"]
+                div class=['row-fluid']
+                  - menu_category.menu_items.each do |menu_item|
+                    div class=['span3']
+                      div class=['menu-box']
+                        div class=['thumb']
+                          = image_tag(menu_item.picture.url(:original), alt: 'img')
+                          strong class=['price']
+                            = menu_item.price
+                        div class=['text']
+                          strong class=['title']
+                            = menu_item.name
+                          ul class=['testimonial-star pull-right']
+                            li
+                              a href="#"
+                            li
+                              a href="#"
+                            li
+                              a href="#"
+                            li
+                              a href="#"
+                            li
+                              a href="#"
+                          p
+                            |Nullam id dolor id niltricies vehicula ut id elit. osuer e consectetu. Aliquauam sollicitudin hendrerit.
+
+
+                        div class=['menu-box-bottom']
+                          ul
+                            li
+                              div class=['face-review']
+                                ul
+                                  li
+                                    a href='#'
+                                  li
+                                    a href='#'
+                                  li
+                                    a href='#'
+                                  li
+                                    a href='#'
+                                  li
+                                    a href='#'
+                                strong class=['title']
+                                  |100 reviews
+                            li
+                              strong class=['name']
+                                |1025 Kcal
+                            li
+                              a href='#' class=['view']
+                                |Order
