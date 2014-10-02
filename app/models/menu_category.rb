@@ -4,5 +4,8 @@ class MenuCategory < ActiveRecord::Base
 
   validates_presence_of :name
 
+  def first?
+    self.id == MenuCategory.first.id
+  end
 
 end

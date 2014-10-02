@@ -680,7 +680,7 @@ left-caption-box {
 	background: #efeeef;
 }
 .accordion-area .accordion-heading .accordion-toggle:hover {
-	background-image: url(../images/plus-icon-hover.png);
+	background-image: url(plus-icon-hover.png);
 	background-position: 98% center;
 	background-repeat: no-repeat;
 }

@@ -5966,7 +5966,7 @@ a.badge:focus {
   font-family: 'museo500';
   font-weight:500;
   background-color:#e6e6e6;
-  background-image:url(../images/plus-icon.png);
+  background-image:url(plus-icon.png);
   background-repeat:no-repeat;
   background-position:98% center;
   text-decoration:none;

@@ -64,4 +64,7 @@ section id='banner'
           = image_tag(banner.picture.url(:original), alt: 'img')
 
 section id='content' class=['container']
-section class=['featured-section']
+  section class=['featured-section']
+    div class=['row-fluid']
+      div class=['span3']
+        = render partial: 'accordion_menu'

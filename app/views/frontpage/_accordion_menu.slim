@@ -1,0 +1,9 @@
+div class=["accordion accordion-area"] id="accordion2"
+  - @menu_categories.each do |menu_category|
+    div class=["accordion-group"]
+      div class=["accordion-heading #{active?(menu_category)}"]
+        a class=["accordion-toggle"] data-toggle="collapse" data-parent="#accordion2" href="#collapse#{menu_category.id}"
+          = menu_category.name
+      div id="collapse#{menu_category.id}" class=["accordion-body collapse #{in?(menu_category)}"]
+        div class=["accordion-inner"]
+          div class=["content-2 scroll"] id="content_2"

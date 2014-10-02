@@ -43,7 +43,7 @@ body {
 .accordion-heading .accordion-toggle {
 	background-color: #151315 !important;
 	color: #8a898a !important;
-	background-image: url("../images/plus-icon.png");
+	background-image: url("front/plus-icon.png");
 	background-position: 94% center;
 	background-repeat: no-repeat;
 }
