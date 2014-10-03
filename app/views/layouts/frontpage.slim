@@ -117,6 +117,8 @@ html
             = link_to banner.url
               = image_tag(banner.picture.url(:original), alt: 'img')
 
+    div id='cart' style="width:65px; height:93px; background-image: url('/assets/front/basket-half.png'); z-index:10000; position: absolute; top: 245px; right: 0"
+
 
     == yield
 
@@ -141,3 +143,23 @@ html
     = javascript_include_tag "front/jquery.bxslider.js"
     = javascript_include_tag "front/custom.js"
     = javascript_include_tag "front/jquery.jcarousel.min.js"
+
+    javascript:
+      (function($) {
+        $(document).ready(function(){
+          var el = $('#cart');
+
+          var marginTop = function(){
+            return $(document).scrollTop();
+          };
+
+          var scrollAction = function(){
+            el.animate({"marginTop": marginTop()+"px"}, {duration:500,queue:false});
+          };
+
+          /** trigger the auto scroll */
+          $(window).scroll(function(){
+            scrollAction();
+          });
+        });
+      })(jQuery);
