@@ -24,7 +24,11 @@ html
     = stylesheet_link_tag "front/fancybite.css", 'data-turbolinks-track' => true
 
   body
-    div class=['full-black-overlay']
+    div class=['full-black-overlay'] style='display: none;'
+
+    div class=['order-detail'] style='display: none;'
+      div class=['order-detail-left']
+      div class=['order-detail-right']
 
     div id='wrapper'
       header id='header'
@@ -152,6 +156,7 @@ html
       (function($) {
         $(document).ready(function(){
           var el = $('#cart');
+          var el2 = $('.order-detail');
 
           var marginTop = function(){
             return $(document).scrollTop();
@@ -161,9 +166,14 @@ html
             el.animate({"marginTop": marginTop()+"px"}, {duration:500,queue:false});
           };
 
+          var scrollAction2 = function(){
+            el2.animate({"marginTop": marginTop()+"px"}, {duration:500,queue:false});
+          };
+
           /** trigger the auto scroll */
           $(window).scroll(function(){
             scrollAction();
+            scrollAction2();
           });
         });
       })(jQuery);

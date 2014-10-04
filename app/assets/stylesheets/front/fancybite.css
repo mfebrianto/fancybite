@@ -9,3 +9,29 @@
     position: fixed;
     background-color: #000000;
 }
+
+.order-detail{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    z-index: 300;
+    margin: auto;
+    position: absolute;
+    top: 245px;
+}
+
+.order-detail-left{
+    width: 55%;
+    height: 100%;
+    background-color: blue;
+    z-index: 301;
+    float:left;
+}
+
+.order-detail-right{
+    width: 45%;
+    height: 100%;
+    background-color: red;
+    z-index: 301;
+    float:left;
+}

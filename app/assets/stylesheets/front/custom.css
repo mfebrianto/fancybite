@@ -323,7 +323,7 @@ left-caption-box {
 }
 .banner-left .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
 	position: absolute;
-	z-index: 9999;
+	z-index: 50;
 	top: 40px;
 	right: 28px;
 }
@@ -384,7 +384,7 @@ left-caption-box {
 	position: relative;
 	left: -143px;
 	top: 59px;
-	z-index: 9999;
+	z-index: 50;
 }
 .caption-left a.find:hover {
 	text-decoration: none;
@@ -4349,7 +4349,7 @@ a.back-top {
 	text-indent: -9999px;
 	top: 50%;
 	width: 47px;
-	z-index: 9999;
+	z-index: 50;
 }
 .gallery .bx-wrapper .bx-prev {
 	background: url(../images/gallery-left-arrow.png) no-repeat left top;
