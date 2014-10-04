@@ -21,8 +21,11 @@ html
     = stylesheet_link_tag "front/jquery.mCustomScrollbar.css", 'data-turbolinks-track' => true
     = stylesheet_link_tag "front/style.css", media: 'screen', 'data-turbolinks-track' => true
     = stylesheet_link_tag "front/skin.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/fancybite.css", 'data-turbolinks-track' => true
 
   body
+    div class=['full-black-overlay']
+
     div id='wrapper'
       header id='header'
         div class=['container']
@@ -117,7 +120,7 @@ html
             = link_to banner.url
               = image_tag(banner.picture.url(:original), alt: 'img')
 
-    div id='cart' style="width:65px; height:93px; background-image: url('/assets/front/basket-half.png'); z-index:10000; position: absolute; top: 245px; right: 0"
+    div id='cart' style="width:65px; height:93px; background-image: url('/assets/front/basket-half.png'); z-index:100; position: absolute; top: 245px; right: 0"
 
 
     == yield
@@ -143,6 +146,7 @@ html
     = javascript_include_tag "front/jquery.bxslider.js"
     = javascript_include_tag "front/custom.js"
     = javascript_include_tag "front/jquery.jcarousel.min.js"
+    = javascript_include_tag "front/fancybite.js"
 
     javascript:
       (function($) {
