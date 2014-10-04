@@ -14,5 +14,9 @@ module FrontpageHelper
     return 'active' if controller_name == title
   end
 
+  def price_format(price)
+
+  end
+
 
 end

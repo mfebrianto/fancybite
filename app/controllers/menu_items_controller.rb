@@ -39,6 +39,10 @@ class MenuItemsController < AuthController
     end
   end
 
+  def show
+
+  end
+
   private
 
   def menu_item_params
