@@ -8,6 +8,8 @@ class FrontpageController < FreeController
 
   def show
 
+    @menu_item = MenuItem.find(params[:id])
+
     respond_to do |format|
       format.js {render :layout=>false}
     end

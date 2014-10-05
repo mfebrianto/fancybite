@@ -28,6 +28,7 @@ html
 
     div class=['order-detail'] style='display: none;'
       div class=['order-detail-left']
+        div class=['order-bottom-layer']
       div class=['order-detail-right']
 
     div id='wrapper'
@@ -124,7 +125,7 @@ html
             = link_to banner.url
               = image_tag(banner.picture.url(:original), alt: 'img')
 
-    div id='cart' style="width:65px; height:93px; background-image: url('/assets/front/basket-half.png'); z-index:100; position: absolute; top: 245px; right: 0"
+    div id='cart' style="width:65px; height:93px; background-image: url('/assets/front/basket-half.png'); z-index:100; position: absolute; top: 100px; right: 0"
 
 
     == yield

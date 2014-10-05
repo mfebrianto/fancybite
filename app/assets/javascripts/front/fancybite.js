@@ -19,7 +19,7 @@ fancybite.openDetail = function(){
 
 
         $('.menu-click').click(function(){
-            $.get('/frontpage/1');
+            $.get('/frontpage/' + this.id);
         });
 
         $('.full-black-overlay').click(function(){
