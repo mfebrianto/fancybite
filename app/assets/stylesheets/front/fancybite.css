@@ -13,7 +13,7 @@
 .order-detail{
     width: 100%;
     height: 300px;
-    background-color: black;
+    /*background-color: black;*/
     z-index: 300;
     margin: auto;
     position: absolute;
@@ -23,7 +23,7 @@
 .order-detail-left{
     width: 55%;
     height: 100%;
-    background-color: blue;
+    /*background-color: blue;*/
     z-index: 301;
     float:left;
 }
@@ -41,4 +41,17 @@
     background-color: red;
     z-index: 301;
     float:left;
+}
+
+.image-with-border{
+    margin: 20% 5% 0% 5%;
+    border-color: #000000;
+    border-width: 2px;
+    border-style: solid;
+    display: inline-block;
+}
+
+.span-half-parent{
+    width: 50%;
+    float: left;
 }

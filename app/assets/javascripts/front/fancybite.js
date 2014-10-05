@@ -24,6 +24,6 @@ fancybite.openDetail = function(){
 
         $('.full-black-overlay').click(function(){
             fancybite.init();
-        })
+        });
     });
 })(jQuery);

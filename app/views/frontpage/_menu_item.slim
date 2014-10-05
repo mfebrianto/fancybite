@@ -1,6 +1,12 @@
-div class=['container']
-  div class=['row']
+div class=['container-fluid']
+  div class=['row-fluid']
     div class="span6"
-      = image_tag c.picture.url(:thumb)
+      div class="image-with-border"
+        = image_tag c.picture.url(:original), class: 'menu-item-detail'
     div class="span6"
-      |.col-xs-6
+      /= c.name
+      /br
+      /= c.description
+      /br
+      /|qty.
+      /input type='text'
