@@ -1,12 +1,24 @@
 div class=['container-fluid']
   div class=['row-fluid']
-    div class="span6"
+    div class=['span6']
       div class="image-with-border"
-        = image_tag c.picture.url(:original), class: 'menu-item-detail'
-    div class="span6"
-      /= c.name
-      /br
-      /= c.description
-      /br
-      /|qty.
-      /input type='text'
+        = image_tag c.picture.url(:original)
+    div class=['span6']
+      div style='margin: 5% 5% 0 5%;'
+        strong class="title" style="font-size: 20px;"
+          = c.name
+        br
+        = c.description
+        br
+        |IDR
+        = c.price
+        hr
+        form
+          div style='margin-bottom: 10px;'
+            label class=['control-label'] for='inputQty' style='float:left;'
+              |Quantity :
+            input type='text' id='inputQty' size='5' style='width: 50px; float:left; margin-left: 10px;' value=1
+          br
+          br
+          div class='buy-button'
+            |buy

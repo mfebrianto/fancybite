@@ -29,7 +29,6 @@
 }
 
 .order-bottom-layer{
-    height: 280px;
     border-radius: 10px;
     margin: 10px 10px 10px 10px;
     background-color: white;
@@ -44,7 +43,7 @@
 }
 
 .image-with-border{
-    margin: 20% 5% 0% 5%;
+    margin: 8% 5% 0% 5%;
     border-color: #000000;
     border-width: 2px;
     border-style: solid;
@@ -54,4 +53,10 @@
 .span-half-parent{
     width: 50%;
     float: left;
+}
+
+.buy-button{
+    background-color: #f06489;
+    width: 70px;
+    text-align: center;
 }
