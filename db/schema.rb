@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141003144937) do
+ActiveRecord::Schema.define(version: 20141006085647) do
 
   create_table "banner_menus", force: true do |t|
     t.integer  "sequence"
@@ -53,8 +53,9 @@ ActiveRecord::Schema.define(version: 20141003144937) do
   add_index "menu_items", ["menu_category_id"], name: "index_menu_items_on_menu_category_id", using: :btree
 
   create_table "order_details", force: true do |t|
-    t.string "menu_item_id"
-    t.string "order_id"
+    t.string  "menu_item_id"
+    t.string  "order_id"
+    t.decimal "quantity",     precision: 10, scale: 0
   end
 
   create_table "orders", force: true do |t|

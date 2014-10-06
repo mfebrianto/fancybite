@@ -13,12 +13,12 @@ div class=['container-fluid']
         'IDR
         = c.price
         hr
-        form
+        = form_tag('/orders', remote: true)
+          = hidden_field_tag 'menu_item_id', c.id
           div style='margin-bottom: 10px;'
             label class=['control-label'] for='inputQty' style='float:left;'
               |Quantity :
-            input type='text' id='inputQty' size='5' style='width: 50px; float:left; margin-left: 10px;' value=1
+            input type='text' id='inputQty' name='quantity' size='5' style='width: 50px; float:left; margin-left: 10px;' value=1
           br
           br
-          div class='buy-button'
-            |buy
+          = button_tag 'Buy', class: 'buy-button'
