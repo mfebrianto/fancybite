@@ -1,5 +1,14 @@
 div class=['note-header']
   = image_tag('front/note-header.png', alt: 'img', style: 'max-height: 10%; width: 100%')
 div class=['note-body']
-  - c.each do |order_detail|
-    = order_detail.menu_item.name
+  - unless c.nil?
+    - c.each do |order_detail|
+      = order_detail.quantity
+      ' x
+      = order_detail.menu_item.name
+      '
+      = subtotal(order_detail.menu_item.price, order_detail.quantity)
+      br
+  br
+    'Total of your order is IDR
+    = total(c)
