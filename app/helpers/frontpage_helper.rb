@@ -1,7 +1,6 @@
 module FrontpageHelper
 
   def active?(menu_category)
-    Rails.logger.info ">>>>>>>>>active"
     return 'active' if menu_category.first?
   end
 
@@ -10,7 +9,6 @@ module FrontpageHelper
   end
 
   def active_menu?(controller_name, title)
-    Rails.logger.info ">>>>>>>>>>>#{controller_name}"
     return 'active' if controller_name == title
   end
 
@@ -24,9 +22,9 @@ module FrontpageHelper
 
   def total(order_details)
     total = 0
-    order_details.each do |order_detail|
-      total += subtotal(order_detail.menu_item.price, order_detail.quantity)
-    end
+      Array(order_details).each do |order_detail|
+        total += subtotal(order_detail.menu_item.price, order_detail.quantity)
+      end
     total
   end
 

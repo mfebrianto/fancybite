@@ -20,10 +20,19 @@ class OrdersController < FreeController
     end
   end
 
+  def destroy
+    order_detail = OrderDetail.find(orders_params[:id])
+    order_detail.delete
+
+    respond_to do |format|
+      format.js {render :layout=>false}
+    end
+  end
+
   private
 
   def orders_params
-    params.permit(:quantity, :menu_item_id)
+    params.permit(:id, :quantity, :menu_item_id)
   end
 
 end
