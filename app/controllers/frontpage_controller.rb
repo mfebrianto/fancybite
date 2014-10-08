@@ -4,6 +4,8 @@ class FrontpageController < FreeController
     @featuring_items = FeaturingItem.all
     @menu_categories = MenuCategory.all
     @banner_menus = BannerMenu.all
+    Rails.logger.info ">>>>>>>>>>>>#{session['order_id']}"
+    @order_details = OrderDetail.where(order_id: session['order_id'])
   end
 
   def show

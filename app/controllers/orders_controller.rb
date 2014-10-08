@@ -14,6 +14,7 @@ class OrdersController < FreeController
                                    menu_item_id: orders_params[:menu_item_id],
                                    order_id: order_id )
     order_detail.save
+    @order_details = OrderDetail.where(order_id: session['order_id'])
 
     respond_to do |format|
       format.js {render :layout=>false}
@@ -23,6 +24,8 @@ class OrdersController < FreeController
   def destroy
     order_detail = OrderDetail.find(orders_params[:id])
     order_detail.delete
+
+    @order_details = OrderDetail.where(order_id: session['order_id'])
 
     respond_to do |format|
       format.js {render :layout=>false}

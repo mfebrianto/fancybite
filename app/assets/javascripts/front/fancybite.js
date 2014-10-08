@@ -12,6 +12,10 @@ fancybite.openDetail = function(){
     $('.order-detail').show();
 };
 
+fancybite.number_of_order_on_basket = function(number_of_order){
+    $('#cart-content').text(number_of_order);
+};
+
 (function($) {
     $(document).ready(function(){
 
