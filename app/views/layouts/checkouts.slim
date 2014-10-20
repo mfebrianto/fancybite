@@ -1,0 +1,89 @@
+doctype html
+html
+  head
+    meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"
+    title FancyBite
+    /!Google Fonts!/
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Oswald|Lato|Roboto:400,500,700|Open+Sans:600,700,300'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Pacifico'
+
+    = javascript_include_tag "application"
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag "front/custom.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/colors_1.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/bootstrap.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/bootstrap-responsive.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/fullcalendar.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/font-awesome.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/flexslider.css", media: 'screen', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/jquery.mCustomScrollbar.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/style.css", media: 'screen', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/skin.css", 'data-turbolinks-track' => true
+    = stylesheet_link_tag "front/fancybite.css", 'data-turbolinks-track' => true
+
+  body
+    div class=['full-black-overlay'] style='display: none;'
+
+    div class=['menu-item-detail'] style='display: none;'
+      div class=['menu-item-detail-frame']
+        div class=['menu-item-detail-content']
+
+    div class=['order-detail'] style='display: none;'
+      div class=['order-detail-ini']
+
+
+    div id='wrapper'
+      header id='header'
+        div class=['container']
+          div class=['row-fluid']
+            div class=['span3']
+              div class=['logo']
+                = link_to root_path
+                  = image_tag('logo/logosmall.png', alt: 'img')
+            div class=['span9 margin-non']
+              div class=['top-container']
+              div class=['navbar navbar-inverse nav-bar']
+                div class=['navbar-inner nav-bar-inner']
+                  button type='button' class=['btn btn-navbar'] data-toggle='collapse' data-target='.nav-collapse'
+                    span class=['icon-bar']
+                    span class=['icon-bar']
+                    span class=['icon-bar']
+                  div class=['nav-collapse collapse top-nav']
+                    ul class=['nav']
+                      li class=["dropdown #{active_menu?(controller.controller_name,'frontpage')}"]
+                        = link_to 'Home', root_path, class: 'dropdown-toggle'
+                      li class=["dropdown #{active_menu?(controller.controller_name,'complete_menu_items')}"]
+                        = link_to 'Our Menu', complete_menu_items_path, class: 'dropdown-toggle'
+                      li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
+                        = link_to 'Your Shopping Cart', root_path, class: 'dropdown-toggle'
+                      li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
+                        = link_to 'About Us', root_path, class: 'dropdown-toggle'
+                      li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
+                        = link_to 'Contact Us', root_path, class: 'dropdown-toggle'
+
+    == yield
+
+    footer id='footer'
+      div class=['row-fluid']
+        section class=['footer-section-3']
+          div class=['container']
+            div class=['span6']
+              div class=['copy-section']
+                strong class=['copy']
+                  |© 2014 Fancy Bite, Developed by MichaelClairine
+            div class=['span6']
+
+
+    = javascript_include_tag "front/bootstrap.min.js"
+    = javascript_include_tag "front/jquery.flexslider.js"
+    = javascript_include_tag "front/fullcalendar.js"
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?sensor=true"
+    = javascript_include_tag "front/jquery.mCustomScrollbar.concat.min.js"
+    = javascript_include_tag "front/excanvas.js"
+    = javascript_include_tag "front/jquery.easy-pie-chart.js"
+    = javascript_include_tag "front/jquery.bxslider.js"
+    = javascript_include_tag "front/custom.js"
+    = javascript_include_tag "front/jquery.jcarousel.min.js"
+    = javascript_include_tag "front/fancybite.js"

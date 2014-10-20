@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :complete_menu_items
   resources :frontpage
   resources :orders
+  resources :checkouts
 
   # Example resource route with options:
   #   resources :products do

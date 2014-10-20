@@ -1,18 +1,20 @@
 div class=['note-header']
-  = image_tag('front/note-header.png', alt: 'img', style: 'max-height: 10%; width: 100%')
-  div class=['note-body']
-    - unless c.nil?
-      - c.each do |order_detail|
-        = order_detail.quantity
-        ' x
-        = order_detail.menu_item.name
-        '
-        = subtotal(order_detail.menu_item.price, order_detail.quantity)
-        '
-        '
-        = link_to order_path(order_detail.id), remote: true, method: 'delete'
-          = image_tag('front/delete_small.png', alt: 'img')
-        br
-    br
-      'Total of your order is IDR
-      = total(c)
+= image_tag('front/note-header.png', alt: 'img', style: 'max-height: 10%; width: 100%')
+div class=['note-body']
+  - unless c.nil?
+    - c.each do |order_detail|
+      = order_detail.quantity
+      ' x
+      = order_detail.menu_item.name
+      '
+      = subtotal(order_detail.menu_item.price, order_detail.quantity)
+      '
+      '
+      = link_to order_path(order_detail.id), remote: true, method: 'delete'
+        = image_tag('front/delete_small.png', alt: 'img')
+      br
+  br
+    'Total of your order is IDR
+    = total(c)
+div class=['note-footer']
+  = link_to 'checkouts', checkouts_path
