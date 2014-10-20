@@ -8,4 +8,8 @@ class DashboardController < AuthController
 
   end
 
+  def create
+
+  end
+
 end

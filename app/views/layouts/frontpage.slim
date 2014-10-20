@@ -26,11 +26,12 @@ html
   body
     div class=['full-black-overlay'] style='display: none;'
 
+    div class=['menu-item-detail'] style='display: none;'
+      div class=['menu-item-detail-frame']
+        div class=['menu-item-detail-content']
+
     div class=['order-detail'] style='display: none;'
-      div class=['order-detail-left']
-        div class=['order-bottom-layer']
-      div class=['order-detail-right']
-        div class=['order-bottom-layer-right']
+      div class=['order-detail-inside']
 
     div id='wrapper'
       header id='header'
@@ -126,10 +127,11 @@ html
             = link_to banner.url
               = image_tag(banner.picture.url(:original), alt: 'img')
 
-    div id='cart' style="z-index:100; position: absolute; top: 100px; right: 0;"
-      div style="width:65px; height:93px; background-image: url('/assets/front/basket-half.png'); float: right"
-      div id='cart-content'
-        = Array(@order_details).count
+    = link_to orders_path, remote: true
+      div id='cart' style="z-index:100; position: absolute; top: 100px; right: 0;"
+        div style="width:65px; height:93px; background-image: url('/assets/front/basket-half.png'); float: right"
+        div id='cart-content'
+          = Array(@order_details).count
 
 
     == yield
@@ -161,7 +163,8 @@ html
       (function($) {
         $(document).ready(function(){
           var el = $('#cart');
-          var el2 = $('.order-detail');
+          var el_menu_item = $('.menu-item-detail');
+          var el_order_detail = $('.order-detail');
 
           var marginTop = function(){
             return $(document).scrollTop();
@@ -171,14 +174,19 @@ html
             el.animate({"marginTop": marginTop()+"px"}, {duration:500,queue:false});
           };
 
-          var scrollAction2 = function(){
-            el2.animate({"marginTop": marginTop()+"px"}, {duration:500,queue:false});
+          var scrollActionMenuItem = function(){
+            el_menu_item.animate({"marginTop": marginTop()+"px"}, {duration:500,queue:false});
+          };
+
+          var scrollActionOrderDetail = function () {
+            el_order_detail.animate({"marginTop": marginTop() + "px"}, {duration: 500, queue: false});
           };
 
           /** trigger the auto scroll */
           $(window).scroll(function(){
             scrollAction();
-            scrollAction2();
+            scrollActionMenuItem();
+            scrollActionOrderDetail();
           });
         });
       })(jQuery);

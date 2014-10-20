@@ -2,11 +2,18 @@ var fancybite = {};
 
 fancybite.init = function(){
     $('.full-black-overlay').hide();
+    $('.menu-item-detail').hide();
     $('.order-detail').hide();
     $('#cart').show();
 };
 
 fancybite.openDetail = function(){
+    $('.full-black-overlay').show();
+    $('#cart').hide();
+    $('.menu-item-detail').show();
+};
+
+fancybite.openOrderDetail = function(){
     $('.full-black-overlay').show();
     $('#cart').hide();
     $('.order-detail').show();

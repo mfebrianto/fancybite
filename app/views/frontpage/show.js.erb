@@ -1,3 +1,2 @@
-$('.order-bottom-layer').html("<%= escape_javascript render(:partial => 'menu_item.slim', :locals => { :c => @menu_item }) %>");
-$('.order-bottom-layer-right').html("<%= escape_javascript render(:partial => 'total_order.slim', :locals => { :c => @order_details }) %>");
+$('.menu-item-detail-content').html("<%= escape_javascript render(:partial => 'menu_item.slim', :locals => { :c => @menu_item }) %>");
 fancybite.openDetail();

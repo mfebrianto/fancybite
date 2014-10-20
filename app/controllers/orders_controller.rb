@@ -1,5 +1,14 @@
 class OrdersController < FreeController
 
+
+  def index
+    @order_details = OrderDetail.where(order_id: session['order_id'])
+
+    respond_to do |format|
+      format.js {render :layout=>false}
+    end
+  end
+
   def create
 
     if session['order_id'].blank?
