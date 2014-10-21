@@ -1,0 +1,25 @@
+div class=['container-fluid checkout-form']
+  div class='row'
+    div class='span8'
+      h2 address
+    div class='span4'
+      h2 order
+      table class='table'
+        thead
+          tr
+            th Item name
+            th qty
+            th subtotal
+        tbody
+          - unless @order_details.nil?
+            - @order_details.each do |order_detail|
+              tr
+                td
+                  = order_detail.menu_item.name
+                td
+                  = order_detail.quantity
+                td
+                  = subtotal(order_detail.menu_item.price, order_detail.quantity)
+      div
+        'Total =
+        = total(@order_details)

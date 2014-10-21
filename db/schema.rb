@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141006085647) do
+ActiveRecord::Schema.define(version: 20141021054929) do
+
+  create_table "addresses", force: true do |t|
+    t.string "address"
+    t.string "city"
+    t.string "customer_id"
+  end
 
   create_table "banner_menus", force: true do |t|
     t.integer  "sequence"
@@ -20,6 +26,11 @@ ActiveRecord::Schema.define(version: 20141006085647) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string "name"
+    t.string "email"
   end
 
   create_table "featuring_items", force: true do |t|
@@ -61,6 +72,11 @@ ActiveRecord::Schema.define(version: 20141006085647) do
   create_table "orders", force: true do |t|
     t.string "payment_code"
     t.string "name"
+  end
+
+  create_table "transactions", force: true do |t|
+    t.string "customer_id"
+    t.string "order_id"
   end
 
   create_table "users", force: true do |t|
