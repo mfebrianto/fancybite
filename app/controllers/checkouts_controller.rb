@@ -3,6 +3,7 @@ class CheckoutsController < FreeController
 
 
   def index
+    @order = Order.find(session['order_id'])
     @order_details = OrderDetail.where(order_id: session['order_id']) unless session['order_id'].blank?
 
     @customer = Customer.new
@@ -13,15 +14,21 @@ class CheckoutsController < FreeController
 
   def create
 
-    @customer = Customer.new(checkouts_params)
-    @customer.save
-    @transaction = Transaction.new(customer_id: @customer.id, order_id: session['order_id'])
-    @transaction.save
-    @transfer_key = generate_transfer_key
+    @order = Order.find(session['order_id'])
+    unless @order.check_whether_purchase_is_made
+      @customer = Customer.new(checkouts_params)
+      @customer.save
+      @transaction = Transaction.new(customer_id: @customer.id, order_id: session['order_id'])
+      @transaction.save
+      @transfer_key = generate_transfer_key
 
-    order = Order.create
-    session['order_id'] = order.id
-
+      order = Order.create
+      session['order_id'] = order.id
+    else
+      @customer = Customer.new
+      @customer.addresses.build
+      render action: 'index'
+    end
 
   end
 

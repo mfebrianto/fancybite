@@ -37,6 +37,11 @@ html
 
     div class='checkout-border'
 
+    - if @order.errors.any?
+      div id='error_explanation'
+        - @order.errors.full_messages.each do |msg|
+          = msg
+
     == yield
 
     footer id='footer'
