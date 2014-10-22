@@ -11,12 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141021054929) do
+ActiveRecord::Schema.define(version: 20141022063724) do
 
   create_table "addresses", force: true do |t|
     t.string "address"
     t.string "city"
     t.string "customer_id"
+    t.string "kecamatan"
+    t.string "kelurahan"
   end
 
   create_table "banner_menus", force: true do |t|
@@ -31,6 +33,8 @@ ActiveRecord::Schema.define(version: 20141021054929) do
   create_table "customers", force: true do |t|
     t.string "name"
     t.string "email"
+    t.string "phone"
+    t.string "password"
   end
 
   create_table "featuring_items", force: true do |t|

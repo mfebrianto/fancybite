@@ -77,6 +77,11 @@
 .note-header{
 }
 
+
+.form-horizontal .control-label{
+    text-align: left;
+}
+
 .checkout-border{
     border-top-style: solid;
     border-color: #f06489;;

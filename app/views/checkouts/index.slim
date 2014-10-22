@@ -1,5 +1,5 @@
 div class='container-fluid'
-  div class='row'
+  div class='row checkout-detail'
     div class='span4'
       h2 order
       table class='table'
@@ -21,15 +21,29 @@ div class='container-fluid'
       div
         'Total =
         = total(@order_details)
-    div class='span6'
-      h2 address
-      = form_for @customer, url: '' do |f|
-        = f.label :name
-        = f.text_field :name
-        = f.label :email
-        = f.text_field :email
-        = f.fields_for :addresses do |ff|
-          = ff.label :address
-          = ff.text_field :address
-          = ff.label :city, 'DKI Jakarta'
-        = f.submit 'put order'
+    div class='span4'
+      h2 Customer
+      = form_for @customer, url: '', html: {class: 'form-horizontal'} do |f|
+        div class='control-group'
+          = f.label :name, class: 'control-label'
+          div class='controls'
+            = f.text_field :name
+        div class='control-group'
+          = f.label :email, class: 'control-label'
+          div class='controls'
+            = f.text_field :email
+        div class='control-group'
+          = f.label :phone, class: 'control-label'
+          div class='controls'
+            = f.text_field :phone
+        div class='control-group'
+          = f.label :password, class: 'control-label'
+          div class='controls'
+            = f.text_field :password
+    div class='span4'
+      h2 Address
+    /  = f.fields_for :addresses do |ff|
+    /    = ff.label :address
+    /    = ff.text_field :address
+    /    = ff.label :city, 'DKI Jakarta'
+    /  = f.submit 'put order'
