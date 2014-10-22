@@ -1,4 +1,4 @@
-div class=['container-fluid checkout-form']
+div class='container-fluid'
   div class='row'
     div class='span4'
       h2 order
@@ -21,7 +21,7 @@ div class=['container-fluid checkout-form']
       div
         'Total =
         = total(@order_details)
-    div class='span8'
+    div class='span6'
       h2 address
       = form_for @customer, url: '' do |f|
         = f.label :name
@@ -31,4 +31,5 @@ div class=['container-fluid checkout-form']
         = f.fields_for :addresses do |ff|
           = ff.label :address
           = ff.text_field :address
-        = f.submit
+          = ff.label :city, 'DKI Jakarta'
+        = f.submit 'put order'
