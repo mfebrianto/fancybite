@@ -15,6 +15,7 @@ class CheckoutsController < FreeController
   def create
 
     @order = Order.find(session['order_id'])
+    @order_details = @order.order_details
     @customer = Customer.new(checkouts_params)
     if !@order.check_whether_purchase_is_made && @customer.save
       @transaction = Transaction.new(customer_id: @customer.id, order_id: session['order_id'])
@@ -24,6 +25,7 @@ class CheckoutsController < FreeController
       order = Order.create
       session['order_id'] = order.id
     else
+      Rails.logger.info ">>>>>>>>>>>>>>#{@customer.errors.inspect}"
       render action: 'index'
     end
 
