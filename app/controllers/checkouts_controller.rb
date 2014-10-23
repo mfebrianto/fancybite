@@ -15,9 +15,8 @@ class CheckoutsController < FreeController
   def create
 
     @order = Order.find(session['order_id'])
-    unless @order.check_whether_purchase_is_made
-      @customer = Customer.new(checkouts_params)
-      @customer.save
+    @customer = Customer.new(checkouts_params)
+    if !@order.check_whether_purchase_is_made && @customer.save
       @transaction = Transaction.new(customer_id: @customer.id, order_id: session['order_id'])
       @transaction.save
       @transfer_key = generate_transfer_key
@@ -25,8 +24,6 @@ class CheckoutsController < FreeController
       order = Order.create
       session['order_id'] = order.id
     else
-      @customer = Customer.new
-      @customer.addresses.build
       render action: 'index'
     end
 
@@ -35,7 +32,7 @@ class CheckoutsController < FreeController
   private
 
   def checkouts_params
-    params.require(:customer).permit(:name, :email, addresses_attributes: [:address, :id])
+    params.require(:customer).permit(:name, :email, :phone, addresses_attributes: [:address, :id])
   end
 
   def generate_transfer_key

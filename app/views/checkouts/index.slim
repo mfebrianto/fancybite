@@ -1,3 +1,8 @@
+- if @order.errors.any?
+  div id='error_explanation'
+    - @order.errors.full_messages.each do |msg|
+      = msg
+
 div class='container-fluid'
   = form_for @customer, url: '', html: {class: 'form-horizontal'} do |f|
     div class='row checkout-detail'
