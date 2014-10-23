@@ -36,10 +36,6 @@ div class='container-fluid'
           = f.label :phone, class: 'control-label'
           div
             = f.text_field :phone
-        div class='control-group'
-          = f.label :password, class: 'control-label'
-          div
-            = f.text_field :password
       div class='span4'
         h2 Address
         = f.fields_for :addresses do |ff|

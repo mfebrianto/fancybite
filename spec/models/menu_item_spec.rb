@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MenuItem do
+describe MenuItem do
 
   it { should validate_presence_of :name }
   it { should validate_presence_of :menu_category }

@@ -6,4 +6,6 @@ class Customer < ActiveRecord::Base
 
   accepts_nested_attributes_for :addresses
 
+  validates_presence_of :name, :email, :phone
+
 end
