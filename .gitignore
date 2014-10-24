@@ -21,3 +21,6 @@
 
 # ignore paperclip images
 public/system
+
+# simplecov generated files
+coverage

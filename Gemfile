@@ -21,7 +21,9 @@ gem 'shoulda-matchers', '~> 2.7.0'
 gem 'rspec', '~> 3.1.0'
 gem 'rspec-rails', '~> 3.1.0'
 
-gem "paperclip", "~> 4.2"
+gem 'paperclip', '~> 4.2'
+
+gem 'simplecov', '~> 0.9.0', :require => false, :group => :test
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
