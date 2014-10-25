@@ -1,4 +1,4 @@
-class CheckoutsController < FreeController
+class TransactionsController < FreeController
 
 
 

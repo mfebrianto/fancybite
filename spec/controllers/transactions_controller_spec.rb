@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CheckoutsController do
+describe TransactionsController do
 
   describe 'validation' do
 
