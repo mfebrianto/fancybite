@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022063724) do
+ActiveRecord::Schema.define(version: 20141025043540) do
 
   create_table "addresses", force: true do |t|
     t.string "address"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141022063724) do
   create_table "transactions", force: true do |t|
     t.string "customer_id"
     t.string "order_id"
+    t.string "transfer_key"
   end
 
   create_table "users", force: true do |t|

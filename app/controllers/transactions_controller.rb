@@ -13,14 +13,12 @@ class TransactionsController < FreeController
 
 
   def create
-
     @order = Order.find(session['order_id'])
     @order_details = @order.order_details
     @customer = Customer.new(checkouts_params)
     if !@order.check_whether_purchase_is_made && @customer.save
       @transaction = Transaction.new(customer_id: @customer.id, order_id: session['order_id'])
       @transaction.save
-      @transfer_key = generate_transfer_key
 
       order = Order.create
       session['order_id'] = order.id
@@ -37,8 +35,5 @@ class TransactionsController < FreeController
     params.require(:customer).permit(:name, :email, :phone, addresses_attributes: [:address, :id])
   end
 
-  def generate_transfer_key
-    '12323212'
-  end
 
 end
