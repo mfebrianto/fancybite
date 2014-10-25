@@ -6,6 +6,7 @@ describe Transaction do
   describe 'on create' do
 
     before(:each) do
+      ActionMailer::Base.deliveries.clear
       customer = Customer.create!(name: 'mynametest',
                                   email: 'myemail@domain.com',
                                   phone: '123456789')

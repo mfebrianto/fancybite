@@ -9,7 +9,7 @@ class Transaction < ActiveRecord::Base
   private
 
   def send_email
-    mail(to: customer.email, subject: 'Fancybite order detail', content_type: 'text/html')
+    OrderMailer.order_confirmation(customer).deliver
   end
 
   def unique_transaction_id
