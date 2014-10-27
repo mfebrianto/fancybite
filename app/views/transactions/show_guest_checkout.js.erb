@@ -1,1 +1,2 @@
-$('#customer_detail_on_transaction').html("<%= escape_javascript render(:partial => 'guest_details', :locals => { :customer_details => @customer }) %>");
+$('#customer_detail_on_transaction').html("<%= escape_javascript render(:partial => 'guest_details', :locals => { :customer => @customer }) %>");
+$('#button').show();

@@ -9,31 +9,42 @@ div id='error_explanation'
       br
 
 div class='container-fluid'
-    div class='row checkout-detail'
-      div class='span3'
-        h2 order
-        table class='table'
-          thead
-            tr
-              th Item name
-              th qty
-              th subtotal
-          tbody
-            - unless @order_details.nil?
-              - @order_details.each do |order_detail|
-                tr
-                  td
-                    = order_detail.menu_item.name
-                  td
-                    = order_detail.quantity
-                  td
-                    = subtotal(order_detail.menu_item.price, order_detail.quantity)
-        div
-          'Total =
-          = total(@order_details)
-      div class='span9' id='customer_detail_on_transaction'
-        h2 Member sign in
-        h2 Join us to get more ?
-        'of course
-        '/
-        =link_to 'no, I will checkout as guest ', show_guest_checkout_transactions_path, remote: true
+  div class='row checkout-detail'
+    div class='span3'
+      h2 order
+      table class='table'
+        thead
+          tr
+            th Item name
+            th qty
+            th subtotal
+        tbody
+          - unless @order_details.nil?
+            - @order_details.each do |order_detail|
+              tr
+                td
+                  = order_detail.menu_item.name
+                td
+                  = order_detail.quantity
+                td
+                  = subtotal(order_detail.menu_item.price, order_detail.quantity)
+      div
+        'Total =
+        = total(@order_details)
+    div class='span9' id='customer_detail_on_transaction'
+      h2 Member sign in
+      h2 Join us to get more ?
+      'of course
+      '/
+      =link_to 'no, I will checkout as guest ', show_guest_checkout_transactions_path, remote: true
+
+  div id='button' style='display: none'
+    button type='button' id='checkout_button'
+      |checkout
+
+javascript:
+  (function ($) {
+    $('#checkout_button').click(function(){
+      $('#customer_details_form').submit();
+    })
+  })(jQuery);
