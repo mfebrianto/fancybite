@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   resources :complete_menu_items
   resources :frontpage
   resources :orders
-  resources :transactions
+  resources :transactions do
+    collection do
+      get 'show_guest_checkout'
+    end
+  end
 
   # Example resource route with options:
   #   resources :products do

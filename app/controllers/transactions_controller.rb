@@ -3,14 +3,17 @@ class TransactionsController < FreeController
 
 
   def index
-    @order = Order.find(session['order_id'])
-    @order_details = OrderDetail.where(order_id: session['order_id']) unless session['order_id'].blank?
-
-    @customer = Customer.new
-
-    @customer.addresses.build # if it is not built first then it will return empty object.
+    order_detail
+    customer
   end
 
+  def show_guest_checkout
+    customer
+
+    respond_to do |format|
+      format.js {render :layout=>false}
+    end
+  end
 
   def create
     @order = Order.find(session['order_id'])
@@ -33,6 +36,16 @@ class TransactionsController < FreeController
 
   def checkouts_params
     params.require(:customer).permit(:name, :email, :phone, addresses_attributes: [:address, :id])
+  end
+
+  def order_detail
+    @order = Order.find(session['order_id'])
+    @order_details = OrderDetail.where(order_id: session['order_id']) unless session['order_id'].blank?
+  end
+
+  def customer
+    @customer = Customer.new
+    @customer.addresses.build # if it is not built first then it will return empty object.
   end
 
 
