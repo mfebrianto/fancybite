@@ -21,8 +21,8 @@ describe Transaction do
 
     describe 'send_email' do
       it 'should sent successfully' do
-        ActionMailer::Base.deliveries.count.should == 1
-        ActionMailer::Base.deliveries.first.subject.should == 'Fancybite order detail'
+        expect(ActionMailer::Base.deliveries.count) == 1
+        expect(ActionMailer::Base.deliveries.first.subject) == 'Fancybite order detail'
       end
     end
   end

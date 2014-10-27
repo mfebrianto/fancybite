@@ -6,5 +6,6 @@ class MemberQuestion
   attr_accessor :join
 
   validates :join, presence: true
+  validates :join, inclusion: %w(true false)
 
 end
