@@ -12,6 +12,11 @@ class TransactionsController < FreeController
     customer
   end
 
+  def join_form
+    order_detail
+    customer
+  end
+
   def create
     @order = Order.find(session['order_id'])
     @order_details = @order.order_details

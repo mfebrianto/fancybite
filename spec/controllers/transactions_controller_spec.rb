@@ -15,4 +15,14 @@ describe TransactionsController do
     end
   end
 
+  describe 'GET join_form' do
+    it 'render template join_form' do
+      create(:order_detail)
+      session['order_id'] = Order.first.id
+      get :join_form
+      expect(response).to render_template('join_form')
+    end
+  end
+
+
 end

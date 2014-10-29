@@ -34,6 +34,6 @@ div class='container-fluid'
     div class='span8' id='customer_detail_on_transaction'
       h2 Member sign in
       h2 Join us to get more ?
-      'of course
-      '/
+      =link_to 'of course ', join_form_transactions_path
+      ' /
       =link_to 'no, I will checkout as guest ', show_guest_checkout_transactions_path
