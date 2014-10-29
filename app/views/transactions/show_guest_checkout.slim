@@ -1,0 +1,69 @@
+div id='error_explanation'
+  - if @order.errors.any?
+    - @order.errors.full_messages.each do |msg|
+      = msg
+      br
+  - if @customer.errors.any?
+    - @customer.errors.full_messages.each do |msg|
+      = msg
+      br
+
+  div class='container-fluid'
+    = form_for :customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
+      div class='row checkout-detail'
+        div class='span4'
+          h2 order
+          table class='table'
+            thead
+              tr
+                th Item name
+                th qty
+                th subtotal
+            tbody
+              - unless @order_details.nil?
+                - @order_details.each do |order_detail|
+                  tr
+                    td
+                      = order_detail.menu_item.name
+                    td
+                      = order_detail.quantity
+                    td
+                      = subtotal(order_detail.menu_item.price, order_detail.quantity)
+          div
+            'Total =
+            = total(@order_details)
+        div class='span4'
+          h2 Customer
+          div class='control-group'
+            = f.label :name, class: 'control-label'
+            div
+              = f.text_field :name
+          div class='control-group'
+            = f.label :email, class: 'control-label'
+            div
+              = f.text_field :email
+          div class='control-group'
+            = f.label :phone, class: 'control-label'
+            div
+              = f.text_field :phone
+        div class='span4'
+          h2 Address
+          = f.fields_for :addresses do |ff|
+            div class='control-group'
+              = ff.label :address, class: 'control-label'
+              div
+                = ff.text_field :address
+            div class='control-group'
+              = ff.label :kecamatan, class: 'control-label'
+              div
+                |Kelapa Gading
+            div class='control-group'
+              = ff.label :kelurahan, class: 'control-label'
+              div
+                |Kelapa Gading
+            div class='control-group'
+              = ff.label :city, class: 'control-label'
+              div
+                |DKI Jakarta
+
+      = f.submit 'checkout'

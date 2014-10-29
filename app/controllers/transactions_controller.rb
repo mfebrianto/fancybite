@@ -8,11 +8,8 @@ class TransactionsController < FreeController
   end
 
   def show_guest_checkout
+    order_detail
     customer
-
-    respond_to do |format|
-      format.js {render :layout=>false}
-    end
   end
 
   def create
