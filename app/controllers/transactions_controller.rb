@@ -14,27 +14,56 @@ class TransactionsController < FreeController
 
   def join_form
     order_detail
-    customer
+    @registered_customer = RegisteredCustomer.new
+    @registered_customer.addresses.build
   end
 
   def create
     @order = Order.find(session['order_id'])
     @order_details = @order.order_details
-    @customer = Customer.new(checkouts_params)
-    if !@order.check_whether_purchase_is_made && @customer.save
-      @transaction = Transaction.new(customer_id: @customer.id, order_id: session['order_id'])
+
+    save_result = false
+    action = 'index'
+    customer_id = 0
+    if guest_customer
+      @customer = Customer.new(checkouts_params)
+      save_result = @customer.save
+      action = 'show_guest_checkout'
+      customer_id = @customer.id
+    elsif joining_customer
+      @registered_customer = RegisteredCustomer.new(joining_customer_params)
+      save_result = @registered_customer.save
+      action = 'join_form'
+      customer_id = @registered_customer.id
+    end
+
+
+    if !@order.check_whether_purchase_is_made && save_result
+      @transaction = Transaction.new(customer_id: customer_id, order_id: session['order_id'])
       @transaction.save
 
       order = Order.create
       session['order_id'] = order.id
     else
-      Rails.logger.info ">>>>>>>>>>>>>>#{@customer.errors.inspect}"
-      render action: 'index'
+      render action: action
     end
 
   end
 
   private
+
+  def guest_customer
+    params.has_key?(:customer)
+  end
+
+  def joining_customer
+    params.has_key?(:registered_customer)
+  end
+
+  def joining_customer_params
+    params.require(:registered_customer).permit(:name, :email, :phone, :password, :password_confirmation,
+                                                addresses_attributes: [:address, :id])
+  end
 
   def checkouts_params
     params.require(:customer).permit(:name, :email, :phone, addresses_attributes: [:address, :id])
