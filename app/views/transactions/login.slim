@@ -36,6 +36,15 @@ div id='error_explanation'
           h2
             'Hi
             = @registered_customer.name
+          = link_to 'sign out', sign_out_transactions_path
+
+          /div class='container'
+          /  div class='row-fluid'
+          /    div class='accordion accordion-area'
+          /      div class='accordion-heading active'
+          /        a class='accordion-toggle'
+          /          'Transaction History
+
         div class='span4'
           h2 Address
           = f.fields_for :addresses do |ff|

@@ -50,8 +50,13 @@ class TransactionsController < FreeController
     else
       render action: action
     end
-
   end
+
+  def sign_out
+    session['registered_customer_id'] = nil
+    redirect_to action: 'index'
+  end
+
 
   def login
     order_detail
@@ -59,7 +64,6 @@ class TransactionsController < FreeController
 
     if @customer_login.valid?
       @registered_customer = @customer_login.customer
-      puts ">>>>>>>>#{@registered_customer.inspect}"
       session['registered_customer_id'] = @customer_login.customer.id
     else
       render action: 'index'

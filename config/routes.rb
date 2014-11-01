@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get 'show_guest_checkout'
       get 'join_form'
       post 'login'
+      get 'sign_out'
     end
   end
 
