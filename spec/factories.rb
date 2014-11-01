@@ -24,3 +24,13 @@ FactoryGirl.define do
     association :menu_item, factory: :menu_item
   end
 end
+
+FactoryGirl.define do
+  factory :registered_customer do
+    name 'clairine felicia'
+    email 'clairinemichael@gmail.com'
+    phone '0817728208'
+    password '12345678'
+    password_confirmation '12345678'
+  end
+end

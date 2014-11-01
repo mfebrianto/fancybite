@@ -1,12 +1,11 @@
 class TransactionsController < FreeController
 
   def index
+    order_detail
     if session['registered_customer_id'].blank?
-      order_detail
-      @registered_customer = RegisteredCustomer.new
+      @customer_login = CustomerLogin.new
     else
-      order_detail
-      @registered_customer = RegisteredCustomer.new
+      @registered_customer = RegisteredCustomer.find(session['registered_customer_id'])
       render action: 'login'
     end
   end
@@ -56,9 +55,16 @@ class TransactionsController < FreeController
 
   def login
     order_detail
-    @registered_customer = RegisteredCustomer.new()
+    @customer_login = CustomerLogin.new(customer_login_params)
 
-    session['registered_customer_id'] = 0
+    if @customer_login.valid?
+      @registered_customer = @customer_login.customer
+      puts ">>>>>>>>#{@registered_customer.inspect}"
+      session['registered_customer_id'] = @customer_login.customer.id
+    else
+      render action: 'index'
+    end
+
   end
 
   private
@@ -71,8 +77,8 @@ class TransactionsController < FreeController
     params.has_key?(:registered_customer)
   end
 
-  def registered_customer_params
-    params.require(:registered_customer).permit(:email, :password)
+  def customer_login_params
+    params.require(:customer_login).permit(:email, :password)
   end
 
   def joining_customer_params

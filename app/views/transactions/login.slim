@@ -33,7 +33,9 @@ div id='error_explanation'
             'Total =
             = total(@order_details)
         div class='span4'
-          h2 Hi <name>,
+          h2
+            'Hi
+            = @registered_customer.name
         div class='span4'
           h2 Address
           = f.fields_for :addresses do |ff|
