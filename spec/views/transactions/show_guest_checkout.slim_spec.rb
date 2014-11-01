@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'transactions/index' do
+describe 'transactions/show_guest_checkout' do
 
   let(:error_message_hasnt_purchased) {'You hasnt purchased anything yet'}
   let(:error_message_blank) {"is required"}

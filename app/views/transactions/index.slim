@@ -3,8 +3,8 @@ div id='error_explanation'
     - @order.errors.full_messages.each do |msg|
       = msg
       br
-  - if @customer.errors.any?
-    - @customer.errors.full_messages.each do |msg|
+  - if @registered_customer.errors.any?
+    - @registered_customer.errors.full_messages.each do |msg|
       = msg
       br
 
@@ -33,6 +33,16 @@ div class='container-fluid'
         = total(@order_details)
     div class='span8' id='customer_detail_on_transaction'
       h2 Member sign in
+      = form_for :registered_customer, url: '/transactions/login', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
+        div class='control-group'
+          = f.label :email, class: 'control-label'
+          div
+            = f.text_field :email
+        div class='control-group'
+          = f.label :password, class: 'control-label'
+          div
+            = f.password_field :password
+        = f.submit 'login'
       h2 Join us to get more ?
       =link_to 'of course ', join_form_transactions_path
       ' /

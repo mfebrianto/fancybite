@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       get 'show_guest_checkout'
       get 'join_form'
+      post 'login'
     end
   end
 

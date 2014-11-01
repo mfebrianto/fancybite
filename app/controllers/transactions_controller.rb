@@ -1,10 +1,14 @@
 class TransactionsController < FreeController
 
-
-
   def index
-    order_detail
-    customer
+    if session['registered_customer_id'].blank?
+      order_detail
+      @registered_customer = RegisteredCustomer.new
+    else
+      order_detail
+      @registered_customer = RegisteredCustomer.new
+      render action: 'login'
+    end
   end
 
   def show_guest_checkout
@@ -50,6 +54,13 @@ class TransactionsController < FreeController
 
   end
 
+  def login
+    order_detail
+    @registered_customer = RegisteredCustomer.new()
+
+    session['registered_customer_id'] = 0
+  end
+
   private
 
   def guest_customer
@@ -58,6 +69,10 @@ class TransactionsController < FreeController
 
   def joining_customer
     params.has_key?(:registered_customer)
+  end
+
+  def registered_customer_params
+    params.require(:registered_customer).permit(:email, :password)
   end
 
   def joining_customer_params
