@@ -19,7 +19,7 @@ class CustomerLogin < ActiveRecord::Base
   end
 
   def registered_customer
-    CustomerLogin.where("email = ? and password = ?", email, password).first
+    Customer.where("email = ? and password = ?", email, password).first
   end
 
 

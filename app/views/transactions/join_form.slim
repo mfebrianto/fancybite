@@ -9,7 +9,7 @@ div id='error_explanation'
       br
 
   div class='container-fluid'
-    = form_for :registered_customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
+    = form_for @registered_customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
       div class='row checkout-detail'
         div class='span4'
           h2 order

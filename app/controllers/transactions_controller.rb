@@ -30,16 +30,22 @@ class TransactionsController < FreeController
     customer_id = 0
     if guest_customer
       @customer = Customer.new(checkouts_params)
+      Rails.logger.info ">>>>>>@customer>>>>>>>>>>>>>#{@customer}"
       save_result = @customer.save
       action = 'show_guest_checkout'
       customer_id = @customer.id
     elsif joining_customer
-      @registered_customer = RegisteredCustomer.new(joining_customer_params)
-      save_result = @registered_customer.save
-      action = 'join_form'
+      if joining_customer_params.has_key?(:id)
+        @registered_customer = RegisteredCustomer.find(joining_customer_params[:id])
+        save_result = @registered_customer.update_attributes(joining_customer_params)
+        action = 'create'
+      else
+        @registered_customer = RegisteredCustomer.new(joining_customer_params)
+        save_result = @registered_customer.save
+        action = 'join_form'
+      end
       customer_id = @registered_customer.id
     end
-
 
     if !@order.check_whether_purchase_is_made && save_result
       @transaction = Transaction.new(customer_id: customer_id, order_id: session['order_id'])
@@ -86,12 +92,12 @@ class TransactionsController < FreeController
   end
 
   def joining_customer_params
-    params.require(:registered_customer).permit(:name, :email, :phone, :password, :password_confirmation,
+    params.require(:registered_customer).permit(:name, :email, :phone, :password, :password_confirmation, :id,
                                                 addresses_attributes: [:address, :id])
   end
 
   def checkouts_params
-    params.require(:customer).permit(:name, :email, :phone, addresses_attributes: [:address, :id])
+    params.require(:customer).permit(:name, :email, :phone, addresses_attributes: [:address])
   end
 
   def order_detail
@@ -101,7 +107,9 @@ class TransactionsController < FreeController
 
   def customer
     @customer = Customer.new
-    @customer.addresses.build # if it is not built first then it will return empty object.
+    # @customer.addresses.build # if it is not built first then it will return empty object.
+    Rails.logger.info ">>>>>>>>>>#{@customer.inspect}"
+    # Rails.logger.info ">>>>>>>>>>#{@customer.addresses.inspect}"
   end
 
 

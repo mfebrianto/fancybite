@@ -2,11 +2,11 @@ class RegisteredCustomer < Customer
 
   attr_accessor :password_confirmation
 
-  validates_presence_of :password
-  validates_presence_of :password_confirmation
+  validates_presence_of :password, :on => :create
+  validates_presence_of :password_confirmation, :on => :create
   validate :check_password_equal_password_confirmation,
-           :check_password_length
-
+           :check_password_length,
+           :on => :create
 
   private
 

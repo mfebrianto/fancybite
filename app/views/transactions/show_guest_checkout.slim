@@ -9,7 +9,7 @@ div id='error_explanation'
       br
 
   div class='container-fluid'
-    = form_for :customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
+    = form_for @customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
       div class='row checkout-detail'
         div class='span4'
           h2 order
@@ -48,7 +48,7 @@ div id='error_explanation'
               = f.text_field :phone
         div class='span4'
           h2 Address
-          = f.fields_for :addresses do |ff|
+          = f.fields_for :addresses, @customer.addresses.build do |ff|
             div class='control-group'
               = ff.label :address, class: 'control-label'
               div

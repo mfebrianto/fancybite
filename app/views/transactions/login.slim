@@ -9,7 +9,7 @@ div id='error_explanation'
       br
 
   div class='container-fluid'
-    = form_for :registered_customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
+    = form_for @registered_customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
       div class='row checkout-detail'
         div class='span4'
           h2 order
@@ -38,7 +38,22 @@ div id='error_explanation'
             = @registered_customer.name
           = link_to 'sign out', sign_out_transactions_path
 
-          /div class='container'
+          div class='control-group'
+            = f.label :name, class: 'control-label'
+            div
+              = f.text_field :name, disabled: true
+              = f.hidden_field :id
+          div class='control-group'
+            = f.label :email, class: 'control-label'
+            div
+              = f.text_field :email, disabled: true
+          div class='control-group'
+            = f.label :phone, class: 'control-label'
+            div
+              = f.text_field :phone
+          div class='control-group'
+
+        /div class='container'
           /  div class='row-fluid'
           /    div class='accordion accordion-area'
           /      div class='accordion-heading active'

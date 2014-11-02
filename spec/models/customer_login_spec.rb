@@ -7,6 +7,8 @@ describe CustomerLogin do
 
   describe 'check email and password exist' do
     it 'should return error if not exist' do
+      customer_login = CustomerLogin.new(email: 'blablabla@gmail.com',
+                                         password: '12345678')
       customer_login.valid?
       expect(customer_login.errors[:email].first).to be == ' or password does not exist'
     end
