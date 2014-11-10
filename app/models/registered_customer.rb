@@ -6,9 +6,14 @@ class RegisteredCustomer < Customer
   validates_presence_of :password_confirmation, :on => :create
   validate :check_password_equal_password_confirmation,
            :check_password_length,
+           :check_email_already_exist,
            :on => :create
 
   private
+
+  def check_email_already_exist
+    errors.add(:email, 'that you use has been registered') if !self.email.blank? && RegisteredCustomer.find_by_email(self.email)
+  end
 
   def check_password_equal_password_confirmation
     unless password_and_password_confirmation_exist?
