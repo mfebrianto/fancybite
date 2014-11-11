@@ -9,7 +9,7 @@ div id='error_explanation'
       br
 
   div class='container-fluid'
-    = form_for @registered_customer, url: '/transactions', html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
+    = form_for @registered_customer, url: '/transactions', method: :post, html: {class: 'form-horizontal', id: 'customer_details_form'} do |f|
       div class='row checkout-detail'
         div class='span4'
           h2 order
@@ -53,13 +53,6 @@ div id='error_explanation'
               = f.text_field :phone
           div class='control-group'
 
-        /div class='container'
-          /  div class='row-fluid'
-          /    div class='accordion accordion-area'
-          /      div class='accordion-heading active'
-          /        a class='accordion-toggle'
-          /          'Transaction History
-
         div class='span4'
           h2 Address
           = f.fields_for :addresses do |ff|
@@ -79,5 +72,7 @@ div id='error_explanation'
               = ff.label :city, class: 'control-label'
               div
                 |DKI Jakarta
+
+      = link_to 'show order history', order_history_index_path
 
       = f.submit 'checkout'

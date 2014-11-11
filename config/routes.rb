@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :complete_menu_items
   resources :frontpage
   resources :orders
+  resources :order_history
   resources :transactions do
     collection do
       get 'show_guest_checkout'
