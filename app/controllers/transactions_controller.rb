@@ -30,7 +30,6 @@ class TransactionsController < FreeController
     customer_id = 0
     if guest_customer
       @customer = Customer.new(checkouts_params)
-      Rails.logger.info ">>>>>>@customer>>>>>>>>>>>>>#{@customer}"
       save_result = @customer.save
       action = 'show_guest_checkout'
       customer_id = @customer.id
