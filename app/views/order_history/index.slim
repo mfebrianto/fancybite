@@ -1,5 +1,16 @@
-h1 This is index of order history
 
-- @transaction_history.each do |transaction|
-    = transaction.order.id
-    br
+
+
+div class='row-fluid'
+  div class='span1'
+  div class='span4'
+    h2 Your previous order
+    - @transaction_history.each do |transaction|
+        = link_to transaction.id, order_history_path(transaction.id)
+        br
+  div class='span7'
+    h2 Transaction Detail
+    - unless @transaction.blank?
+      - @transaction.order.order_details.each do |order_detail|
+        = order_detail.menu_item.name
+        br

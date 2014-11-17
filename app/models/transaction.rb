@@ -6,6 +6,13 @@ class Transaction < ActiveRecord::Base
   before_create :unique_transaction_id
   after_create :send_email
 
+  def check_whether_purchase_is_made
+    if self.order_details.empty?
+      errors.add(:name, 'You hasn\'t purchased anything yet')
+    end
+    self.order_details.empty?
+  end
+
   private
 
   def send_email
