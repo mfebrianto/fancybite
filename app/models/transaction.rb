@@ -4,7 +4,7 @@ class Transaction < ActiveRecord::Base
   belongs_to :order
 
   before_create :unique_transaction_id
-  after_create :send_email
+  # after_create :send_email
 
   def check_whether_purchase_is_made
     if self.order_details.empty?

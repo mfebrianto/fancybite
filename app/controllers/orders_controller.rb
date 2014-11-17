@@ -1,6 +1,5 @@
 class OrdersController < FreeController
 
-
   def index
     @order_details = OrderDetail.where(order_id: session['order_id'])
 
@@ -10,18 +9,14 @@ class OrdersController < FreeController
   end
 
   def create
-
     if session['order_id'].blank?
-      order = Order.create
-      order_id = order.id
-      session['order_id'] = order.id
-    else
-      order_id = session['order_id']
+      transaction = Transaction.create
+      session['order_id'] = transaction.id
     end
 
     order_detail = OrderDetail.new(quantity: orders_params[:quantity],
                                    menu_item_id: orders_params[:menu_item_id],
-                                   order_id: order_id )
+                                   order_id: session['order_id'] )
     order_detail.save
     @order_details = OrderDetail.where(order_id: session['order_id'])
 

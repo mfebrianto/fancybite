@@ -1,17 +1,12 @@
 FactoryGirl.define do
 
-  factory :order_detail do
-    order_test
+  factory :menu_category do
+    name "pie"
   end
 
-  factory :order do
-    name "customer"
-
-    factory :order_with_order_detail do
-      after(:create) do |order|
-        create_list(:order_detail, order_test: order)
-      end
-    end
+  factory :menu_item do
+    name "chocolate pie"
+    picture { File.new("#{Rails.root}/spec/support/profile-pic.jpg") }
+    association :menu_category, factory: :menu_category
   end
-
 end
