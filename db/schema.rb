@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20141025043540) do
     t.datetime "picture_updated_at"
   end
 
+  create_table "customer_orders", force: true do |t|
+    t.string "customer_id"
+    t.string "transfer_key"
+  end
+
   create_table "customers", force: true do |t|
     t.string "name"
     t.string "email"
@@ -69,19 +74,8 @@ ActiveRecord::Schema.define(version: 20141025043540) do
 
   create_table "order_details", force: true do |t|
     t.string  "menu_item_id"
-    t.string  "order_id"
-    t.decimal "quantity",     precision: 10, scale: 0
-  end
-
-  create_table "orders", force: true do |t|
-    t.string "payment_code"
-    t.string "name"
-  end
-
-  create_table "transactions", force: true do |t|
-    t.string "customer_id"
-    t.string "order_id"
-    t.string "transfer_key"
+    t.string  "transaction_id"
+    t.decimal "quantity",       precision: 10, scale: 0
   end
 
   create_table "users", force: true do |t|

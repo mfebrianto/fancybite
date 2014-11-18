@@ -19,8 +19,8 @@ describe 'order_history/index' do
     end
 
     it 'should show detail if exist' do
-      puts ">>>>>>>>>>>>#{Transaction.first.order.inspect}"
-      puts ">>>>>>>>>>>>#{Transaction.first.order.order_details.inspect}"
+      puts ">>>>>>>>>>>>#{CustomerOrder.first.order.inspect}"
+      puts ">>>>>>>>>>>>#{CustomerOrder.first.order.order_details.inspect}"
       # expect(render).to match /#{@order_detail.menu_item.name}/
     end
   end

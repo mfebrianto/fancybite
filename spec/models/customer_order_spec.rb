@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Transaction do
+describe CustomerOrder do
 
 
   describe 'on create' do
@@ -10,7 +10,7 @@ describe Transaction do
       customer = Customer.create!(name: 'mynametest',
                                   email: 'myemail@domain.com',
                                   phone: '123456789')
-      @transaction = Transaction.create!(customer_id: customer.id, order_id: 1)
+      @transaction = CustomerOrder.create!(customer_id: customer.id, order_id: 1)
     end
 
     describe 'unique_transaction_id' do

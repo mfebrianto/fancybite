@@ -1,7 +1,7 @@
-class Transaction < ActiveRecord::Base
+class CustomerOrder < ActiveRecord::Base
 
   belongs_to :customer
-  belongs_to :order
+  has_many :order_detail
 
   before_create :unique_transaction_id
   # after_create :send_email
