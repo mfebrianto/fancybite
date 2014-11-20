@@ -28,6 +28,11 @@ describe OrdersController do
         expect { xhr :post, :create, menu_item_id: menu_item.id, quantity: 1 }.to change{ Order.count }.by(0)
       end
 
+      it 'should get details of the order' do
+        xhr :post, :create, menu_item_id: menu_item.id, quantity: 1
+        expect(assigns(:order_details)).not_to be_empty
+      end
+
     end
 
   end

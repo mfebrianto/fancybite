@@ -18,7 +18,7 @@ class OrdersController < FreeController
                                    menu_item_id: orders_params[:menu_item_id],
                                    order_id: session['order_id'] )
     order_detail.save
-    @order_details = OrderDetail.where(transaction_id: session['order_id'])
+    @order_details = OrderDetail.where(order_id: session['order_id'])
 
     respond_to do |format|
       format.js {render :layout=>false}
