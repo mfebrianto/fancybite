@@ -47,7 +47,7 @@ class TransactionsController < FreeController
     end
 
     if !@order.check_whether_purchase_is_made && save_result
-      @transaction = CustomerOrder.new(customer_id: customer_id, order_id: session['order_id'])
+      @transaction = Order.new(customer_id: customer_id, order_id: session['order_id'])
       @transaction.save
 
       order = Order.create

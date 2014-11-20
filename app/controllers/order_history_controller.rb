@@ -6,7 +6,7 @@ class OrderHistoryController < TransactionsController
 
   def show
     transaction_history
-    @transaction = CustomerOrder.find(show_param)
+    @transaction = Order.find(show_param)
 
     render action: 'index'
   end
@@ -18,7 +18,7 @@ class OrderHistoryController < TransactionsController
   end
 
   def transaction_history
-    @transaction_history = CustomerOrder.where(customer_id: session['registered_customer_id'])
+    @transaction_history = Order.where(customer_id: session['registered_customer_id'])
   end
 
 end

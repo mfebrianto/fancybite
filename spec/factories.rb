@@ -18,14 +18,14 @@ FactoryGirl.define do
     password_confirmation '12345678'
   end
 
-  factory :customer_order do
+  factory :order do
     association :customer, factory: :registered_customer
   end
 
 
   factory :order_detail do
     association :menu_item, factory: :menu_item
-    association :customer_order, factory: :customer_order
+    association :order, factory: :order
   end
 
 
