@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :frontpage
   resources :orders
   resources :order_history
+  resources :sessions
   resources :transactions do
     collection do
       get 'show_guest_checkout'

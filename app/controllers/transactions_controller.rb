@@ -1,4 +1,6 @@
-class TransactionsController < FreeController
+class TransactionsController < FrontpageController
+
+  before_action :check_session
 
   def index
     order_detail
