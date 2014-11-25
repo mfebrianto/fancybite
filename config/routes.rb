@@ -21,15 +21,23 @@ Rails.application.routes.draw do
   resources :featuring_items
   resources :banner_menus
   resources :complete_menu_items
-  resources :frontpage
+  resources :frontpage do
+    collection do
+      get 'check_session'
+    end
+  end
+
   resources :orders
   resources :order_history
-  resources :sessions
+  resources :sessions do
+    collection do
+      post 'login'
+    end
+  end
   resources :transactions do
     collection do
       get 'show_guest_checkout'
       get 'join_form'
-      post 'login'
       get 'sign_out'
     end
   end
