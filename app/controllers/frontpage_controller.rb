@@ -1,7 +1,14 @@
 class FrontpageController < FreeController
 
   def check_session
-    unless session['registered_customer_id'] || session['customer_id']
+    if ( session['registered_customer_id'] || session['customer_id'] ) && session['original_request'].blank?
+      true
+    elsif ( session['registered_customer_id'] || session['customer_id'] ) && !session['original_request'].blank?
+      original_request = session['original_request']
+      session['original_request'] = ''
+      redirect_to original_request
+    else
+      session['original_request'] = request.original_url
       redirect_to sessions_url
     end
   end
