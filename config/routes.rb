@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   resources :orders
   resources :order_history
+  resources :registrations
   resources :sessions do
     collection do
       post 'login'
@@ -37,7 +38,6 @@ Rails.application.routes.draw do
   resources :transactions do
     collection do
       get 'show_guest_checkout'
-      get 'join_form'
       get 'sign_out'
     end
   end

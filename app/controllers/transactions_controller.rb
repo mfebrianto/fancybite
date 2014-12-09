@@ -1,6 +1,6 @@
 class TransactionsController < FrontpageController
 
-  before_action :check_session
+  before_action :check_session, :except => [:join]
 
   def index
     order_detail
@@ -15,12 +15,6 @@ class TransactionsController < FrontpageController
   def show_guest_checkout
     order_detail
     customer
-  end
-
-  def join_form
-    order_detail
-    @registered_customer = RegisteredCustomer.new
-    @registered_customer.addresses.build
   end
 
   def create
