@@ -16,4 +16,8 @@ module FrontpageHelper
 
   end
 
+  def is_login?
+    session['registered_customer_id'].present?
+  end
+
 end

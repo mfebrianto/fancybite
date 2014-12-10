@@ -30,15 +30,13 @@ Rails.application.routes.draw do
   resources :orders
   resources :order_history
   resources :registrations
-  resources :sessions do
-    collection do
-      post 'login'
-    end
-  end
+
+  get 'sessions/login' => 'sessions#login'
+  get 'sessions/logout' => 'sessions#logout'
+
   resources :transactions do
     collection do
       get 'show_guest_checkout'
-      get 'sign_out'
     end
   end
 

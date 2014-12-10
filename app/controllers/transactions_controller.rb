@@ -53,12 +53,6 @@ class TransactionsController < FrontpageController
     end
   end
 
-  def sign_out
-    session['registered_customer_id'] = nil
-    redirect_to action: 'index'
-  end
-
-
   def login
     order_detail
     @customer_login = CustomerLogin.new(customer_login_params)

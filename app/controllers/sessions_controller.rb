@@ -4,6 +4,11 @@ class SessionsController < FrontpageController
 
   end
 
+  def logout
+    session['registered_customer_id'] = nil
+    redirect_to root_url
+  end
+
   def login
     customer = Customer.find_by_email_and_password(customer_login_params[:email], customer_login_params[:password])
     if customer

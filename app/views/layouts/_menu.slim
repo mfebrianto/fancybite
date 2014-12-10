@@ -25,4 +25,7 @@ div id='wrapper'
                   li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
                     = link_to 'About Us', root_path, class: 'dropdown-toggle'
                   li class=["dropdown #{active_menu?(controller.controller_name,'home')}"]
-                    = link_to 'Contact Us', root_path, class: 'dropdown-toggle'
+                    - if is_login?
+                      = link_to 'logout', sessions_logout_path, class: 'dropdown-toggle'
+                    - else
+                      = link_to 'login', sessions_login_path, class: 'dropdown-toggle'

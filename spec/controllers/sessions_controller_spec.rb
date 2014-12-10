@@ -21,4 +21,11 @@ describe SessionsController do
     end
   end
 
+  describe 'logout' do
+    it 'should make registered_customer_id session id to nil' do
+      post :logout
+      expect(session['registered_customer_id']).to be_nil
+    end
+  end
+
 end
