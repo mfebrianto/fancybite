@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20141214050706) do
     t.string   "transfer_key"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "commit_to_buy"
+    t.datetime "commit_to_buy_at"
   end
 
   create_table "users", force: true do |t|

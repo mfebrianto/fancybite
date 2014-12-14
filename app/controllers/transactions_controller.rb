@@ -19,38 +19,11 @@ class TransactionsController < FrontpageController
 
   def create
     @order = Order.find(session['order_id'])
-    @order_details = @order.order_details
-
-    save_result = false
-    action = 'index'
-    customer_id = 0
-    if guest_customer
-      @customer = Customer.new(checkouts_params)
-      save_result = @customer.save
-      action = 'show_guest_checkout'
-      customer_id = @customer.id
-    elsif joining_customer
-      if joining_customer_params.has_key?(:id)
-        @registered_customer = RegisteredCustomer.find(joining_customer_params[:id])
-        save_result = @registered_customer.update_attributes(joining_customer_params)
-        action = 'create'
-      else
-        @registered_customer = RegisteredCustomer.new(joining_customer_params)
-        save_result = @registered_customer.save
-        action = 'join_form'
-      end
-      customer_id = @registered_customer.id
-    end
-
-    if !@order.check_whether_purchase_is_made && save_result
-      @transaction = Order.new(customer_id: customer_id, order_id: session['order_id'])
-      @transaction.save
-
-      order = Order.create
-      session['order_id'] = order.id
-    else
-      render action: action
-    end
+    @order.customer_id = session['registered_customer_id']
+    @order.commit_to_buy = true
+    @order.commit_to_buy_at = Time.now
+    @order.save
+    clear_session
   end
 
   def login
@@ -86,7 +59,7 @@ class TransactionsController < FrontpageController
   end
 
   def checkouts_params
-    params.require(:customer).permit(:name, :email, :phone, addresses_attributes: [:address])
+    params.re quire(:customer).permit(:name, :email, :phone, addresses_attributes: [:address])
   end
 
   def order_detail
@@ -101,5 +74,8 @@ class TransactionsController < FrontpageController
     # Rails.logger.info ">>>>>>>>>>#{@customer.addresses.inspect}"
   end
 
+  def clear_session
+    session.clear
+  end
 
 end
