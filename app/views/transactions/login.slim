@@ -36,7 +36,7 @@ div id='error_explanation'
           h2
             'Hi
             = @registered_customer.name
-          = link_to 'sign out', sign_out_transactions_path
+          = link_to 'sign out', sessions_logout_path
 
           div class='control-group'
             = f.label :name, class: 'control-label'

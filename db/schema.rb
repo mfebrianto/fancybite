@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025043540) do
+ActiveRecord::Schema.define(version: 20141214050706) do
 
   create_table "addresses", force: true do |t|
     t.string "address"
@@ -74,8 +74,10 @@ ActiveRecord::Schema.define(version: 20141025043540) do
   end
 
   create_table "orders", force: true do |t|
-    t.string "customer_id"
-    t.string "transfer_key"
+    t.string   "customer_id"
+    t.string   "transfer_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

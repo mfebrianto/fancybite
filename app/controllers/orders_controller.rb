@@ -10,8 +10,8 @@ class OrdersController < FreeController
 
   def create
     if session['order_id'].blank?
-      transaction = Order.create
-      session['order_id'] = transaction.id
+      order = Order.create
+      session['order_id'] = order.id
     end
 
     order_detail = OrderDetail.new(quantity: orders_params[:quantity],

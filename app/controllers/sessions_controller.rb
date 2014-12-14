@@ -1,7 +1,7 @@
 class SessionsController < FrontpageController
 
   def index
-
+    @order_details = OrderDetail.where(order_id: session['order_id'])
   end
 
   def logout

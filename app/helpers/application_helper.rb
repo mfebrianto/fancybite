@@ -15,5 +15,4 @@ module ApplicationHelper
     end
     total
   end
-
 end

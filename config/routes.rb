@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   resources :order_history
   resources :registrations
 
-  get 'sessions/login' => 'sessions#login'
+  get 'sessions' => 'sessions#index'
+  post 'sessions/login' => 'sessions#login'
   get 'sessions/logout' => 'sessions#logout'
 
   resources :transactions do
