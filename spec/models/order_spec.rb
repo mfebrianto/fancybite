@@ -29,6 +29,7 @@ describe Order do
     describe 'generate_receipt' do
       it 'should generate pdf file' do
         @order.generate_receipt
+        expect(File).to exist(Rails.root.join('receipts','receipt.pdf'))
       end
     end
   end
