@@ -13,6 +13,10 @@ class Order < ActiveRecord::Base
     self.order_details.empty?
   end
 
+  def generate_receipt
+    generate_pdf
+  end
+
   private
 
   def send_email
@@ -21,6 +25,12 @@ class Order < ActiveRecord::Base
 
   def unique_transaction_id
     self.transfer_key = SecureRandom.hex(3)
+  end
+
+  def generate_pdf
+    pdf = Prawn::Document.new
+    pdf.image Rails.root.join('app','assets','images','logo','logobw.jpg'), scale: 0.3, :position => :center
+    pdf.render_file "receipts/receipt.pdf"
   end
 
 end

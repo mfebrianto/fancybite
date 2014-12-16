@@ -40,7 +40,7 @@ gem 'spring',        group: :development
 gem 'rubysl-securerandom'
 gem 'factory_girl_rails'
 
-gem 'pdf-forms'
+gem 'prawn'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

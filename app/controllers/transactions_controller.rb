@@ -23,6 +23,7 @@ class TransactionsController < FrontpageController
     @order.commit_to_buy = true
     @order.commit_to_buy_at = Time.now
     @order.save
+    @order.generate_receipt
     clear_session
   end
 

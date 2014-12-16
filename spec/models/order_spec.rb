@@ -10,12 +10,12 @@ describe Order do
       customer = Customer.create!(name: 'mynametest',
                                   email: 'myemail@domain.com',
                                   phone: '123456789')
-      @transaction = Order.create!(customer_id: customer.id, order_id: 1)
+      @order = Order.create!(customer_id: customer.id)
     end
 
     describe 'unique_transaction_id' do
       it 'should generate 5 digits id' do
-        expect(@transaction.transfer_key.length) == 5
+        expect(@order.transfer_key.length) == 5
       end
     end
 
@@ -23,6 +23,12 @@ describe Order do
       it 'should sent successfully' do
         expect(ActionMailer::Base.deliveries.count) == 1
         expect(ActionMailer::Base.deliveries.first.subject) == 'Fancybite order detail'
+      end
+    end
+
+    describe 'generate_receipt' do
+      it 'should generate pdf file' do
+        @order.generate_receipt
       end
     end
   end
