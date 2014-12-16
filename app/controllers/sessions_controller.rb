@@ -2,6 +2,12 @@ class SessionsController < FrontpageController
 
   def index
     @order_details = OrderDetail.where(order_id: session['order_id'])
+    if @order_details.blank? || @order_details == 0
+      flash[:notification] = "you need to make order first"
+      redirect_to root_url
+    else
+      @order_details
+    end
   end
 
   def logout

@@ -23,10 +23,20 @@ fancybite.number_of_order_on_basket = function(number_of_order){
     $('#cart-content').text(number_of_order);
 };
 
+
+fancybite.notification_exist = function(){
+    if ($('#notification').length > 0){
+        setTimeout(function () {
+            $('#notification').slideUp("slow");
+        }, 5000);
+    }
+};
+
 (function($) {
     $(document).ready(function(){
 
         fancybite.init();
+        fancybite.notification_exist();
 
 
         $('.menu-click').click(function(){

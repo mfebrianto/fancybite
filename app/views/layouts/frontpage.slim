@@ -21,6 +21,9 @@ html
     = stylesheet_link_tag "front/fancybite.css", 'data-turbolinks-track' => true
 
   body
+    - if flash.present?
+      div id='notification'
+        = flash[:notification]
     div class=['full-black-overlay'] style='display: none;'
 
     div class=['menu-item-detail'] style='display: none;'
