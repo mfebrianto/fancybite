@@ -24,7 +24,7 @@ class TransactionsController < FrontpageController
     @order.commit_to_buy_at = Time.now
     @order.save
     @order.generate_receipt
-    clear_session
+    clear_order_id_session
   end
 
   def login
@@ -75,8 +75,8 @@ class TransactionsController < FrontpageController
     # Rails.logger.info ">>>>>>>>>>#{@customer.addresses.inspect}"
   end
 
-  def clear_session
-    session.clear
+  def clear_order_id_session
+    session['order_id'] = nil
   end
 
 end

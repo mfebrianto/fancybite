@@ -28,8 +28,15 @@ class Order < ActiveRecord::Base
   end
 
   def generate_pdf
-    pdf = Prawn::Document.new
-    pdf.image Rails.root.join('app','assets','images','logo','logobw.jpg'), scale: 0.3, :position => :center
+    pdf = Prawn::Document.new(page_size: [200,600], margin: [10, 5, 5, 5])
+    pdf.image Rails.root.join('app','assets','images','logo','logobw.jpg'), scale: 0.2, :position => :center
+    pdf.line [10,490], [290,490]
+    order_detail.each do |od|
+      pdf.draw_text od.quantity.to_s, at: [2, 480], size: 10
+      pdf.draw_text od.menu_item.name, at: [20, 480], size: 10
+      pdf.draw_text od.menu_item.price.to_s, at: [100, 480], size: 10
+      pdf.draw_text (od.menu_item.price * od.quantity).to_s, at: [150, 480], size: 10
+    end
     pdf.render_file "receipts/receipt.pdf"
   end
 
